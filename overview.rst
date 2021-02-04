@@ -38,7 +38,7 @@ L'accesso per il tramite della CIE ai servizi erogati in rete dalle PP.AA. è re
 
    Schema di autenticazione Entra con CIE tramite modalitá "desktop".
 
-.. figure:: ./media/schemamobile.png
+.. figure:: ./media/schemaMobile.png
    :alt: Modalitá mobile.
    :width: 15 cm
    :name: modalitá-mobile
