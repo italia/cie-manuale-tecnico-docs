@@ -131,9 +131,9 @@ Per facilitare la compatibilità con i successivi metodi di log-out, deve essere
 
 Come specificato nella sezione :ref:`logout`, l'IdP server non prevede, attualmente, un meccanismo di *single logout SAML*.
 
-NameIDFormat
+NameID Format
 ------------
-L'elemento :xml:`<NameIDFormat>` specifica il formato con cui vengono gestiti i :xml:`<NameID>` nell'ambito del protocollo SAML per identificare il soggetto a cui si riferisce un'asserzione. In particolare, nel caso specifico di Entra con CIE, tale elemento deve essere valorizzato come :xml:`urn:oasis:names:tc:SAML:2.0:nameidformat:transient`, per indicare che le informazioni hanno una validitá transitoria e riferita solo alla specifica sessione di autenticazione.
+L'elemento :xml:`<NameIDFormat>` specifica il formato con cui vengono gestiti i :xml:`<NameID>` nell'ambito del protocollo SAML per identificare il soggetto a cui si riferisce un'asserzione. In particolare, nel caso specifico di Entra con CIE, tale elemento deve essere valorizzato come :xml:`urn:oasis:names:tc:SAML:2.0:nameid-format:transient`, per indicare che le informazioni hanno una validitá transitoria e riferita solo alla specifica sessione di autenticazione.
 
 Assertion Consumer Service
 --------------------------
