@@ -9,7 +9,7 @@ Protocolli di comunicazione
 
 Terminata la fase di federazione tramite lo scambio dei metadata opportunamente predisposti come da specifiche riportate nella precedente sezione, il Service Provider viene aggiunto nella *trusted list* dell'Identity Provider ed é quindi possibile lo scambio dei messaggi previsto dal protocollo SAML SSO. Tale protocollo viene avviato al momento in cui l'utente esprime la volontà di accedere al servizio cliccando il tasto "Entra con CIE" nella pagina html del Service Provider. Quest'ultimo prepara di conseguenza una richiesta di autenticazione (:xml:`<AuthnRequest>`) che inoltra all'Identity Provider al quale l'utente viene reindirizzato per effettuare l'autenticazione tramite la propria CIE. La componente server dell'Identity Provider (CieID Server) invita l'utente a avvicinare la propria CIE sul lettore avviando automaticamente il processo di autenticazione mediante la CIE. L'utente deve, quindi, inserire la seconda metà del PIN e confermare. 
 
-.. figure:: ../media/processoAutenticazioneCIE.png
+.. figure:: ./media/processoAutenticazioneCIE.png
    :alt: Processo di autenticazione del CieID Server
    :name: processo-autenticazione-con-cie
 
@@ -450,7 +450,7 @@ Logout
 
 Lo schema di autenticazione Entra con CIE, nella versione attuale, non implementa il Single logout SAML. Il meccanismo di logout previsto gestisce la sola sessione relativa all'Identity Provider non propagando il logout sulle relative sessioni dei Service Provider. A tal proposito é onere del Service Provider garantire il logout al proprio servizio autenticato tramite un apposito endpoint presente nei metadata dell'Identity Provider all'interno del tag :xml:`<SingleLogoutService>` che viene invocato mediante HTTP-GET e che reinderizza su una apposita pagina dell'IdP server CieID recante il messaggio "Logout effettuato con successo". 
 
-.. figure:: ../media/SimpleLogout.png
+.. figure:: ./media/SimpleLogout.png
    :alt: Schermata di logout
    :name: logout-entra-con-cie
 

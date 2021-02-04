@@ -7,14 +7,14 @@ I Service Provider che intendono erogare i propri servizi tramite App mobile, ha
 
 - *Flusso integrato*: il processo di autenticazione viene effettuato direttamente all'interno dell'App del Service Provider, il quale integra la comunicazione con la CIE mediante una libreria software.  
 
-.. figure:: ../media/img_MSC_CIE_App2App.png
+.. figure:: ./media/img_MSC_CIE_App2App.png
    :alt: schema flusso con reindirizzamento
    :width: 15 cm
    :name: flusso-reindirizzamento
 
    Flusso con reindirizzamento
 
-.. figure:: ../media/img_MSC_CIE_SDK.png
+.. figure:: ./media/img_MSC_CIE_SDK.png
    :alt: schema flusso integrato
    :width: 15 cm
    :name: flusso-integrato

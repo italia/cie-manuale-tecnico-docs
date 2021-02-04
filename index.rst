@@ -31,4 +31,4 @@ Lo scopo del presente documento è quello di definire le specifiche tecniche per
 
 .. raw:: latex
 
-   \includepdf[landscape=true,pages=-]{../../media/cie_codici_errori.pdf}
+   \includepdf[landscape=true,pages=-]{././media/cie_codici_errori.pdf}
