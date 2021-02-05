@@ -131,9 +131,9 @@ Per facilitare la compatibilità con i successivi metodi di log-out, deve essere
 
 Come specificato nella sezione :ref:`logout`, l'IdP server non prevede, attualmente, un meccanismo di *single logout SAML*.
 
-NameID Format
+NameIDFormat
 ------------
-L'elemento :xml:`<NameIDFormat>` specifica il formato con cui vengono gestiti i :xml:`<NameID>` nell'ambito del protocollo SAML per identificare il soggetto a cui si riferisce un'asserzione. In particolare, nel caso specifico di Entra con CIE, tale elemento deve essere valorizzato come :xml:`urn:oasis:names:tc:SAML:2.0:nameid-format:transient`, per indicare che le informazioni hanno una validitá transitoria e riferita solo alla specifica sessione di autenticazione.
+L'elemento :xml:`<NameIDFormat>` specifica il formato con cui vengono gestiti i :xml:`<NameID>` nell'ambito del protocollo SAML per identificare il soggetto a cui si riferisce un'asserzione. In particolare, nel caso specifico di Entra con CIE, tale elemento deve essere valorizzato come :xml:`urn:oasis:names:tc:SAML:2.0:nameidformat:transient`, per indicare che le informazioni hanno una validitá transitoria e riferita solo alla specifica sessione di autenticazione.
 
 Assertion Consumer Service
 --------------------------
@@ -208,23 +208,28 @@ Ciascuna lingua è indicata con un'istanza della terna *completa* dei seguenti e
 --------------------------------------------
 Informazioni di censimento e contatto
 --------------------------------------------
-Il metadata contiene *una o due* istanze di elementi :xml:`<ContactPerson>` con l'attributo :xml:`contactType` valorizzato come :code:`other`:
+Il metadata contiene *una o due* istanze di elementi :xml:`<ContactPerson>`, entrambe dotate di attributo :xml:`contactType`:
 
    - nel caso di Service Provider autonomi (il cui referente tecnico è cioè "interno" al SP), vi è *una* sola istanza con :xml:`contactType` pari a :code:`other`;
-   - nel caso di soggetti che si affidano ad un partner tecnologico "esterno" come referente tecnico, vi sono *due* simili istanze, entrambe con un ulteriore attributo :xml:`spid:entityType` che sono valorizzate, rispettivamente con :code:`spid:aggregator` (e contenente le informazioni identificative del partner tecnologico, cui afferisce il *referente tecnico* del SP) e :code:`spid:aggregated` (con le informazioni identificative del SP, cui afferisce il proprio *referente amministrativo*).
+   - nel caso di soggetti che si affidano ad un partner tecnologico "esterno" come referente tecnico, vi sono *due* simili istanze: la prima ha il :xml:`contactType` valorizzato come :code:`technical` (e contenente le informazioni identificative del partner tecnologico, cui afferisce il *referente tecnico* del SP); l'altra con il :xml:`contactType` valorizzato come :code:`other` (con le informazioni identificative del SP, cui afferisce il proprio *referente amministrativo*).
 
 I sopraelencati elementi :xml:`<ContactPerson>` con attributo :xml:`contactType` pari a :code:`other` utilizzano il *namespace* XML di SPID ( https://spid.gov.it/saml-extensions ) e sono così valorizzati:
 
-    - :xml:`<Extension>` *obbligatoria*, contenente **almeno uno** dei primi tre elementi:
+    - :xml:`<Extensions>` *obbligatoria*, contenente **almeno uno** dei primi tre elementi del seguente elenco:
 
-       - :xml:`<spid:IPACode>` *obbligatorio* per le **Pubbliche Amministrazioni** e, è valorizzato con il **codice IPA** così come risultante dall'`Indice PA <https://www.indicepa.gov.it>`__ (e *facoltativo* per le altre persone giuridiche iscritte nel medesimo registro); ad esempio, :code:`ipzsspa`;
-       - :xml:`<spid:VATNumber>` *obbligatorio* per i Service Provider dotati di partita IVA, è valorizzato con il numero di **partita IVA** (o *VAT Number* internazionale), comprensivo del codice ISO 3166 alpha-2 del Paese di appartenenza, *senza* spazi; ad esempio, :code:`IT12345678901`.
-       - :xml:`<spid:FiscalCode>` *obbligatorio* per i Service Provider *non* dotati di partita IVA (e facoltativo altrimenti), è valorizzato con il **codice fiscale** della persona giuridica; ad esempio: :code:`12345678901`.
-       - Un elemento vuoto che indica il ruolo di ciascuna istanza dell'elemento-"nonno" con attributo :xml:`entityType`, nel contesto del particolare metadata in cui si trova.
+       - :xml:`<spid:IPACode>` *obbligatorio* per le **Pubbliche Amministrazioni** (PP.AA.) e i Gestori di Pubblici Servizi, è valorizzato con il **codice IPA** così come risultante dall'`Indice PA <https://www.indicepa.gov.it>`__ (IPA); ad esempio, :code:`ipzsspa` (Istituto Poligrafico e Zecca dello Stato S.p.A.);
+       - :xml:`<spid:VATNumber>` *obbligatorio* per soggetti **privati** dotati di partita IVA (e *facoltativo* altrimenti), è valorizzato con il numero di **partita IVA** (o *VAT Number* internazionale), comprensivo del codice ISO 3166-1 α2 del Paese di appartenenza, *senza* spazi; ad esempio, :code:`IT12345678901`.
+       - :xml:`<spid:FiscalCode>` *obbligatorio* per i soggetti **privati** (e *facoltativo* altrimenti), è valorizzato con il **codice fiscale** della persona giuridica; ad esempio: :code:`12345678901`.
+       - Un'*alternativa obbligatoria* tra i seguenti due elementi "vuoti":.:
 
-          - :xml:`<spid:Public/>` nel caso si tratti di una **Pubblica Amministrazone**;
-          - :xml:`<spid:Private/>` nel caso di soggetto **privato**;
+          - :xml:`<spid:Public/>` per le **PP.AA.**,
+          - :xml:`<spid:Private/>` per i soggetti **privati**;
   
+       - :xml:`<cie:IPACAtegory>` valorizzato facoltativamente per le **PP.AA.** e gli altri soggetti iscritti ad `IPA <https://www.indicepa.gov.it>`__, è valorizzato con la sua `Categoria IPA <https://indicepa.gov.it/documentale/n-documentazione.php>`__; ad esempio, :code:`L6` (Comuni italiani) ovvero :code:`L37` (Gestori di Pubblici Servizi).
+       - :xml:`<cie:NACE2Code>` (uno o più) *obbligatorio* per i soggetti **privati** (e *facoltativo* per tutti gli altri, se ne sono dotati), è valorizzato con il `codice ATECO <https://www.istat.it/it/archivio/17888#valori>`__ del soggetto; in caso di soggetti esteri (pubblici e privati), è sempre facoltativo e valorizzato con il `codice NACE (rev. 2) <https://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm>`__ (dal quale sono declinati i codici ATECO per l'Italia); ad esempio :code:`12.34.56`. In caso si possieda più codici ATECO o NACE, questi possono essere inseriti mediante istanze mutliple delle'elemento (ciascuna contenente un unico codice)
+       - :xml:`<cie:Country>` *obbligatorio* per soggetti **esteri** (e *facoltativo* altrimenti), è valorizzato con il codice ISO 3166-1 α2 del Paese ove è situata la sede legale del soggetto; ad esempio :code:`IT` (Italia).
+       - :xml:`<cie:Province>` *facoltativo*, è valorizzato con la sigla automobilistica della Provincia (tutta in maiuscole) dove si trova la sede legale del soggetto; ad esempio :code:`MI`; in caso di soggetti esteri, *se presente*, è valorizzato con :code:`EE`.
+       - :xml:`<cie:Municipality>` *obbligatorio*, è valorizzato con il `codice ISTAT del Comune <https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.xls>`__ (anche detto "codice Belfiore" - tutto in maiuscolo) ove ha la sede legale il soggetto; nel caso di soggetti esteri, *se presente*, è valorizzato con lo *Zip code* della sede legale; ad esempio :code:`H501` (Roma).
        - Ulteriori estensioni previste dal Sistema Pubblico delle Identità Digitali (*SPID*), anche se ignorate dallo schema *Entra con CIE*. 
 
     - :xml:`<Company>` *obbligatorio* e valorizzato con il nome completo del soggetto. Nel caso delle istanze relative al Service Provider (cioè nel caso di unica istanza con attributo :xml:`contactType` valorizzato come :code:`other`, ovvero quella con l'ulteriore con attributo :xml:`entityType` valorizzato con :code:`aggregated`) tale elemento deve essere valorizzato *esattamente* come l'elemento :xml:`<OrganizationName>` (nell'istanza della lingua del Paese dell'organizzazione) presente nell'antenato indiretto :xml:`<Organization>`;
@@ -239,9 +244,9 @@ I sopraelencati elementi :xml:`<ContactPerson>` con attributo :xml:`contactType`
 Estensioni SAML
 ---------------
 Gli elementi :xml:`<Extensions>` opzionalmente presenti nei metadata SAML servono a contenere estensioni proprietarie -- dello schema *Entra con CIE* o relative ad altri schemi di identificazione elettronica (quali ad esempio *SPID*).
-Da specifiche SAML, ogni elemento all'interno di un elemento :xml:`<Extensions>` deve utilizzare un proprio *namespace* XML, opportunamente indicato nella radice del metadata, nell'elemento stesso o nei suoi figli.
+Da specifiche SAML, ogni elemento all'interno di un elemento :xml:`<Extensions>` deve utilizzare un proprio *namespace* XML, opportunamente indicato nella radice del metadata, nell'elemento stesso o nei suoi figli. Nella fattispecie, le estensioni prorpie dello schema *Entra con CIE* usano il *namespace* :code:`https://www.cartaidentita.interno.gov.it/saml-extensions`.
 
-Ad esempio, tra le esensioni previste è possibile indicare le informazioni relative al Service Provider che l'Identity Provider visualizza sulla sua schermata di consenso all'invio degli attributi mediante l'elemento :xml:`<UIInfo>` e il tag :xml:`<DisplayName>` (appartenenti al *namespace*  :code:`xmlns:mdui="urn:oasis:name:tc:SAML:metadata:ui` abbreviato come :code:`mdui`).
+Ad esempio, tra le estensioni previste è possibile indicare le informazioni relative al Service Provider che l'Identity Provider visualizza sulla sua schermata di consenso all'invio degli attributi mediante l'elemento :xml:`<UIInfo>` e il tag :xml:`<DisplayName>` (appartenenti al *namespace*  :code:`xmlns:mdui="urn:oasis:name:tc:SAML:metadata:ui` abbreviato come :code:`mdui`).
 
 .. code-block:: xml
     :linenos:
@@ -257,7 +262,7 @@ Le implementazioni tecniche che non "riconoscono" particolari ulteriori estensio
 -------------------
 Esempio di metadata
 -------------------
-Di seguito si riporta un esempio di metadata per un Service Provider che si presenta autonomamente (senza un referente amministrativo / partner tecnologico "esterno").
+Di seguito si riporta un esempio di metadata per un Service Provider che si presenta autonomamente (senza un referente amministrativo / partner tecnologico "esterno"). In questo esempio, essendo IPZS un Gestore di Pubblico servizio, le estensioni SAML utilizzate sono quelle obbligatoriamente previste per il soggetto pubblico, più facoltativamente quelle dell'Ente pubblico (che un gestore di pubblico servizio può avere).
 
 .. code-block:: xml
     :linenos:
@@ -265,6 +270,7 @@ Di seguito si riporta un esempio di metadata per un Service Provider che si pres
     <md:EntityDescriptor 
       xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" 
       xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+      xmlns:cie="https://www.cartaidentita.interno.gov.it/saml-extensions" 
       xmlns:spid="https://spid.gov.it/saml-extensions" 
       entityID="https://entityid.service-provider/cie">   
         <ds:Signature>
@@ -306,6 +312,11 @@ Di seguito si riporta un esempio di metadata per un Service Provider che si pres
                 <spid:VATNumber>IT00880711007</spid:VATNumber>
                 <spid:FiscalCode>00399810589</spid:FiscalCode>
                 <spid:Private/>
+                <cie:IPACategory>L37</cie:IPACategory>
+                <cie:NACE2Code>18.12.00</cie:NACE2Code>
+                <cie:Country>IT</cie:Country>
+                <cie:Province>RM</cie:Province>
+                <cie:Municipality>H501</cie:Municipality>
             </md:Extensions>
             <md:Company>Istituto Poligrafico e Zecca dello Stato S.p.A.</md:Company>
             <md:EmailAddress>informazioni@ipzs.it</md:EmailAddress>
@@ -314,7 +325,7 @@ Di seguito si riporta un esempio di metadata per un Service Provider che si pres
     </md:EntityDescriptor>
 
 
-Di seguito si riporta un esempio di metadata per un Service Provider (SP) che si presenta per tramite di un partner tecnologico che funge da referente tecnico "esterno" al SP.
+Di seguito si riporta un esempio di metadata per un Service Provider (nell'esempio pubblico) che si presenta per tramite di un partner tecnologico (nell'esempio privato) che funge da referente tecnico "esterno" al SP.
 
 .. code-block:: xml
     :linenos:
@@ -322,6 +333,7 @@ Di seguito si riporta un esempio di metadata per un Service Provider (SP) che si
     <md:EntityDescriptor 
       xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" 
       xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+      xmlns:cie="https://www.cartaidentita.interno.gov.it/saml-extensions" 
       xmlns:spid="https://spid.gov.it/saml-extensions" 
       entityID="https://entityID.aggregatore/pub-ag-full/entityID.aggregato">   
         <ds:Signature>
@@ -343,10 +355,10 @@ Di seguito si riporta un esempio di metadata per un Service Provider (SP) che si
             <md:AttributeConsumingService index="0">
                 <md:ServiceName xml:lang="it">NOME DELLA CATEGORIA DI ATTRIBUTI</md:ServiceName>
                 <md:ServiceName xml:lang="en">eIDAS Minimum Data Set</md:ServiceName>
-                <md:RequestedAttribute Name="name" />
-                <md:RequestedAttribute Name="familyName" />
-                <md:RequestedAttribute Name="dateOfBirth" />
-                <md:RequestedAttribute Name="fiscalNumber" />
+                <md:RequestedAttribute Name="name"/>
+                <md:RequestedAttribute Name="familyName"/>
+                <md:RequestedAttribute Name="dateOfBirth"/>
+                <md:RequestedAttribute Name="fiscalNumber"/>
             </md:AttributeConsumingService>
         </md:SPSSODescriptor>
         <md:Organization>
@@ -354,21 +366,28 @@ Di seguito si riporta un esempio di metadata per un Service Provider (SP) che si
             <md:OrganizationDisplayName xml:lang="it">ISPE</md:OrganizationDisplayName>
             <md:OrganizationURL xml:lang="it">https://ispesempio.gov.it/it/index.html</md:OrganizationURL>
         </md:Organization>
-        <md:ContactPerson contactType="other" spid:entityType="spid:aggregator">
+        <md:ContactPerson contactType="technical">
             <md:Extensions>
                 <spid:VATNumber>IT01234567890</spid:VATNumber>
                 <spid:FiscalCode>9753108642</spid:FiscalCode>
                 <spid:Private/>
+                <cie:NACE2Code>codiceATECO_referenteTecnico</cie:NACE2Code>
+                <cie:Country>IT</cie:Country>
+                <cie:Municipality>codiceISTAT_referenteTecnico</cie:Municipality>
             </md:Extensions>
             <md:Company>Partner Tecnologico per Soluzioni di Identità Federata s.r.l.</md:Company>
             <md:EmailAddress>info.cie@partnertecnologicoidfederata.com</md:EmailAddress>
             <md:TelephoneNumber>+390999135792</md:TelephoneNumber>
         </md:ContactPerson>
-        <md:ContactPerson contactType="other" spid:entityType="spid:aggregated">
+        <md:ContactPerson contactType="other">
             <md:Extensions>
                 <spid:IPACode>codiceIPA_soggetto</spid:IPACode>
                 <spid:FiscalCode>2468013579</spid:FiscalCode>
                 <spid:Public/>
+                <cie:IPACategory>categoriaIPA_SP</cie:IPACategory>
+                <cie:Country>IT</cie:Country>
+                <cie:Province>sigla_provincia_SP</cie:Province>
+                <cie:Municipality>codiceISTAT_comune_SP</cie:Municipality>
             </md:Extensions>
             <md:Company>Istituto Service Provider di Esempio</md:Company>
             <md:EmailAddress>info@ispesempio.gov.it</md:EmailAddress>

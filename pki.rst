@@ -7,9 +7,9 @@ Crittografia e infrastruttura a chiave pubblica (PKI)
 .. role:: xml(code)
     :language: xml
 
----------------------
-Sigili di federazione
----------------------
+----------------------
+Sigilli di federazione
+----------------------
 Tutti gli *enti federati*, cioè i soggetti che entrano nella federazione CIE - ad esempio Service Provider (SP) e Identity Provider (Id) - utilizzano *chiavi crittografiche private* sotto il loro esclusivo controllo per:
 
     - creare un sigillo elettronico sul metadata propro di ciascun ente federato;
@@ -30,7 +30,7 @@ Tutti i sigilli di federazione **devono** essere acclusi per intero mediante ele
 ----------------------------------------
 Struttura dei certificati di federazione
 ----------------------------------------
-I certificati di federazione sono conformi con quanto previsto dalla normativa :rfc:5280 e rispettano anche la normativa comunitaria ETSI in materia di sigilli elettronici avanzati.
+I certificati di federazione sono conformi con quanto previsto dalla normativa *RFC 5280* e rispettano anche la normativa comunitaria ETSI in materia di sigilli elettronici avanzati.
 
 I Service Provider possono, per il momento, adottare anche certificati generati in modalità *self-signed*. Tali certificati, però, perdono la denominazione di sigilli di federezione.
 
