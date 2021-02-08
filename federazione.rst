@@ -271,7 +271,6 @@ Di seguito si riporta un esempio di metadata per un Service Provider che si pres
       xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" 
       xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
       xmlns:cie="https://www.cartaidentita.interno.gov.it/saml-extensions" 
-      xmlns:spid="https://spid.gov.it/saml-extensions" 
       entityID="https://entityid.service-provider/cie">   
         <ds:Signature>
             [...]
@@ -290,8 +289,9 @@ Di seguito si riporta un esempio di metadata per un Service Provider che si pres
             <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://service_provider/logout_service" />
             <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://service_provider/assertion_consumer" index="0" isDefault="true" />
             <md:AttributeConsumingService index="0">
-                <md:ServiceName xml:lang="it">NOME DELLA CATEGORIA DI ATTRIBUTI</md:ServiceName>
-                <md:ServiceName xml:lang="en">eIDAS Minimum Data Set</md:ServiceName>
+                <md:ServiceName xml:lang="">b76df621-7279-4d88-93f6-7c99f06df809</md:ServiceName>
+                <md:ServiceDescription xml:lang="it">NOME DELLA CATEGORIA DI ATTRIBUTI</md:ServiceDescription>
+                <md:ServiceDescription xml:lang="en">eIDAS Minimum Data Set</md:ServiceDescription>
                 <md:RequestedAttribute Name="name" />
                 <md:RequestedAttribute Name="familyName" />
                 <md:RequestedAttribute Name="dateOfBirth" />
@@ -306,14 +306,14 @@ Di seguito si riporta un esempio di metadata per un Service Provider che si pres
             <md:OrganizationDisplayName xml:lang="en">IPZS</md:OrganizationDisplayName>
             <md:OrganizationURL xml:lang="en">https://www.cert.ipzs.it/eng/</md:OrganizationURL>
         </md:Organization>
-        <md:ContactPerson contactType="other">
+        <md:ContactPerson contactType="administrative">
             <md:Extensions>
-                <spid:IPACode>ipzsspa</spid:IPACode>
-                <spid:VATNumber>IT00880711007</spid:VATNumber>
-                <spid:FiscalCode>00399810589</spid:FiscalCode>
-                <spid:Private/>
+                <cie:IPACode>ipzsspa</cie:IPACode>
                 <cie:IPACategory>L37</cie:IPACategory>
+                <cie:VATNumber>IT00880711007</cie:VATNumber>
+                <cue:FiscalCode>00399810589</cie:FiscalCode>
                 <cie:NACE2Code>18.12.00</cie:NACE2Code>
+                <cue:Private/>
                 <cie:Country>IT</cie:Country>
                 <cie:Province>RM</cie:Province>
                 <cie:Municipality>H501</cie:Municipality>
@@ -334,7 +334,6 @@ Di seguito si riporta un esempio di metadata per un Service Provider (nell'esemp
       xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" 
       xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
       xmlns:cie="https://www.cartaidentita.interno.gov.it/saml-extensions" 
-      xmlns:spid="https://spid.gov.it/saml-extensions" 
       entityID="https://entityID.aggregatore/pub-ag-full/entityID.aggregato">   
         <ds:Signature>
             [...]
@@ -353,8 +352,9 @@ Di seguito si riporta un esempio di metadata per un Service Provider (nell'esemp
             <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://service_provider/logout_service" />
             <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://service_provider/assertion_consumer" index="0" isDefault="true" />
             <md:AttributeConsumingService index="0">
-                <md:ServiceName xml:lang="it">NOME DELLA CATEGORIA DI ATTRIBUTI</md:ServiceName>
-                <md:ServiceName xml:lang="en">eIDAS Minimum Data Set</md:ServiceName>
+                <md:ServiceName xml:lang="">b76df621-7279-4d88-93f6-7c99f06df809</md:ServiceName>
+                <md:ServiceDescription xml:lang="it">NOME DELLA CATEGORIA DI ATTRIBUTI</md:ServiceDescription>
+                <md:ServiceDescription xml:lang="en">eIDAS Minimum Data Set</md:ServiceDescription>
                 <md:RequestedAttribute Name="name"/>
                 <md:RequestedAttribute Name="familyName"/>
                 <md:RequestedAttribute Name="dateOfBirth"/>
@@ -368,10 +368,10 @@ Di seguito si riporta un esempio di metadata per un Service Provider (nell'esemp
         </md:Organization>
         <md:ContactPerson contactType="technical">
             <md:Extensions>
-                <spid:VATNumber>IT01234567890</spid:VATNumber>
-                <spid:FiscalCode>9753108642</spid:FiscalCode>
-                <spid:Private/>
+                <cie:VATNumber>IT01234567890</cie:VATNumber>
+                <cie:FiscalCode>9753108642</cie:FiscalCode>
                 <cie:NACE2Code>codiceATECO_referenteTecnico</cie:NACE2Code>
+                <cie:Private/>
                 <cie:Country>IT</cie:Country>
                 <cie:Municipality>codiceISTAT_referenteTecnico</cie:Municipality>
             </md:Extensions>
@@ -379,12 +379,12 @@ Di seguito si riporta un esempio di metadata per un Service Provider (nell'esemp
             <md:EmailAddress>info.cie@partnertecnologicoidfederata.com</md:EmailAddress>
             <md:TelephoneNumber>+390999135792</md:TelephoneNumber>
         </md:ContactPerson>
-        <md:ContactPerson contactType="other">
+        <md:ContactPerson contactType="administrative">
             <md:Extensions>
-                <spid:IPACode>codiceIPA_soggetto</spid:IPACode>
-                <spid:FiscalCode>2468013579</spid:FiscalCode>
-                <spid:Public/>
+                <cie:IPACode>codiceIPA_soggetto</spid:IPACode>
                 <cie:IPACategory>categoriaIPA_SP</cie:IPACategory>
+                <cie:FiscalCode>2468013579</spid:FiscalCode>
+                <cie:Public/>
                 <cie:Country>IT</cie:Country>
                 <cie:Province>sigla_provincia_SP</cie:Province>
                 <cie:Municipality>codiceISTAT_comune_SP</cie:Municipality>
