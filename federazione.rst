@@ -101,7 +101,7 @@ Gli elementi che sono contenuti all'interno dell':xml:`<SPSSODescriptor>` [e la 
     
     - :xml:`<KeyDescriptor>` [uno o più]; 
     - :xml:`<SingleLogoutService>` [uno o più];
-    - :xml:`<md:NameIDFormat>` [al massimo uno];
+    - :xml:`<md:NameIDFormat>` [facoltativo, al massimo uno];
     - :xml:`<AssertionConsumerService>` [uno o più];
     - :xml:`<AttributeConsumingService>` [uno o più];
     - :xml:`<Extensions>` [al massimo uno]: Elemento **facoltativo**, riservato ad estensioni SAML relative a funzionalità aggiuntive del SP.
@@ -133,7 +133,7 @@ Come specificato nella sezione :ref:`logout`, l'IdP server non prevede, attualme
 
 NameIDFormat
 ------------
-L'elemento :xml:`<NameIDFormat>` specifica il formato con cui vengono gestiti i :xml:`<NameID>` nell'ambito del protocollo SAML per identificare il soggetto a cui si riferisce un'asserzione. In particolare, nel caso specifico di Entra con CIE, tale elemento deve essere valorizzato come :xml:`urn:oasis:names:tc:SAML:2.0:nameidformat:transient`, per indicare che le informazioni hanno una validitá transitoria e riferita solo alla specifica sessione di autenticazione.
+L'elemento :xml:`<NameIDFormat>` specifica il formato con cui vengono gestiti i :xml:`<NameID>` nell'ambito del protocollo SAML per identificare il soggetto a cui si riferisce un'asserzione. In particolare, nel caso specifico di Entra con CIE, se presente tale elemento deve essere valorizzato come :xml:`urn:oasis:names:tc:SAML:2.0:nameid-format:transient`, per indicare che le informazioni hanno una validitá transitoria e riferita solo alla specifica sessione di autenticazione.
 
 Assertion Consumer Service
 --------------------------
@@ -163,10 +163,11 @@ Deve essere presente **almeno una** istanza di *Attribute Consuming Service* (**
 
 All'interno di ciascun AtCS sono presenti i seguenti elementi [indicati con la loro cardinalità]:
 
-    - :xml:`<ServiceName>` [uno o più], ciascuno contenente una stringa descrittiva dell'*attribute set* richiedibile dal SP.
+    - :xml:`<ServiceName>` [uno], contenente un *UIID* dell'*attribute set* richiedibile dal SP, comprensivo dell'attributo :xml:`xmlns:lang`, valorizzato con una stringa vuota.
+
+    - :xml:`<ServiceDescription>` [zero o più], ciascuno contenente una descrizione testuale dell'*attribute set*.
     
        - Ciascun istanza di questo elemento presenta l'attributo :xml:`xmlns:lang`, valorizzato con il codice ISO 639 della lingua in cui è scritta tale descrizione.
-       - L'istanza minima obbligatoria di questo elemento è valorizzata in lingua italiana (:xml:`xmlns:lang` valorizzato con :code:`it`).
 
     - :xml:`<RequestedAttribute>` [uno o più], ciascuno contenente i seguenti attributi
     
@@ -210,31 +211,34 @@ Informazioni di censimento e contatto
 --------------------------------------------
 Il metadata contiene *una o due* istanze di elementi :xml:`<ContactPerson>`, entrambe dotate di attributo :xml:`contactType`:
 
-   - nel caso di Service Provider autonomi (il cui referente tecnico è cioè "interno" al SP), vi è *una* sola istanza con :xml:`contactType` pari a :code:`other`;
-   - nel caso di soggetti che si affidano ad un partner tecnologico "esterno" come referente tecnico, vi sono *due* simili istanze: la prima ha il :xml:`contactType` valorizzato come :code:`technical` (e contenente le informazioni identificative del partner tecnologico, cui afferisce il *referente tecnico* del SP); l'altra con il :xml:`contactType` valorizzato come :code:`other` (con le informazioni identificative del SP, cui afferisce il proprio *referente amministrativo*).
+   - nel caso di Service Provider autonomi (il cui referente tecnico è cioè "interno" al SP), vi è *una* sola istanza con :xml:`contactType` pari a :code:`administrative`;
+   - nel caso di soggetti che si affidano ad un partner tecnologico "esterno" come referente tecnico, vi sono *due* simili istanze: 
+    
+        - la prima ha il :xml:`contactType` valorizzato come :code:`administrative` (con le informazioni identificative del SP, cui afferisce il proprio *referente amministrativo*);
+        - l'altra con il :xml:`contactType` valorizzato come :code:`technical` (e contenente le informazioni identificative del partner tecnologico, cui afferisce il *referente tecnico* del SP).
 
-I sopraelencati elementi :xml:`<ContactPerson>` con attributo :xml:`contactType` pari a :code:`other` utilizzano il *namespace* XML di SPID ( https://spid.gov.it/saml-extensions ) e sono così valorizzati:
+I sopraelencati elementi :xml:`<ContactPerson>` sono così valorizzati:
 
-    - :xml:`<Extensions>` *obbligatoria*, contenente **almeno uno** dei primi tre elementi del seguente elenco:
+    - :xml:`<Extensions>` *obbligatoria*, contenente i seguenti elementi, tutti che utilizzano il *namespace* XML di CIE ( https://www.cartaidentita.interno.gov.it/saml-extensions ):
 
-       - :xml:`<spid:IPACode>` *obbligatorio* per le **Pubbliche Amministrazioni** (PP.AA.) e i Gestori di Pubblici Servizi, è valorizzato con il **codice IPA** così come risultante dall'`Indice PA <https://www.indicepa.gov.it>`__ (IPA); ad esempio, :code:`ipzsspa` (Istituto Poligrafico e Zecca dello Stato S.p.A.);
-       - :xml:`<spid:VATNumber>` *obbligatorio* per soggetti **privati** dotati di partita IVA (e *facoltativo* altrimenti), è valorizzato con il numero di **partita IVA** (o *VAT Number* internazionale), comprensivo del codice ISO 3166-1 α2 del Paese di appartenenza, *senza* spazi; ad esempio, :code:`IT12345678901`.
-       - :xml:`<spid:FiscalCode>` *obbligatorio* per i soggetti **privati** (e *facoltativo* altrimenti), è valorizzato con il **codice fiscale** della persona giuridica; ad esempio: :code:`12345678901`.
-       - Un'*alternativa obbligatoria* tra i seguenti due elementi "vuoti":.:
+       - Un'*alternativa obbligatoria* tra i seguenti due elementi "vuoti":
 
-          - :xml:`<spid:Public/>` per le **PP.AA.**,
-          - :xml:`<spid:Private/>` per i soggetti **privati**;
-  
-       - :xml:`<cie:IPACAtegory>` valorizzato facoltativamente per le **PP.AA.** e gli altri soggetti iscritti ad `IPA <https://www.indicepa.gov.it>`__, è valorizzato con la sua `Categoria IPA <https://indicepa.gov.it/documentale/n-documentazione.php>`__; ad esempio, :code:`L6` (Comuni italiani) ovvero :code:`L37` (Gestori di Pubblici Servizi).
-       - :xml:`<cie:NACE2Code>` (uno o più) *obbligatorio* per i soggetti **privati** (e *facoltativo* per tutti gli altri, se ne sono dotati), è valorizzato con il `codice ATECO <https://www.istat.it/it/archivio/17888#valori>`__ del soggetto; in caso di soggetti esteri (pubblici e privati), è sempre facoltativo e valorizzato con il `codice NACE (rev. 2) <https://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm>`__ (dal quale sono declinati i codici ATECO per l'Italia); ad esempio :code:`12.34.56`. In caso si possieda più codici ATECO o NACE, questi possono essere inseriti mediante istanze mutliple delle'elemento (ciascuna contenente un unico codice)
-       - :xml:`<cie:Country>` *obbligatorio* per soggetti **esteri** (e *facoltativo* altrimenti), è valorizzato con il codice ISO 3166-1 α2 del Paese ove è situata la sede legale del soggetto; ad esempio :code:`IT` (Italia).
-       - :xml:`<cie:Province>` *facoltativo*, è valorizzato con la sigla automobilistica della Provincia (tutta in maiuscole) dove si trova la sede legale del soggetto; ad esempio :code:`MI`; in caso di soggetti esteri, *se presente*, è valorizzato con :code:`EE`.
-       - :xml:`<cie:Municipality>` *obbligatorio*, è valorizzato con il `codice ISTAT del Comune <https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.xls>`__ (anche detto "codice Belfiore" - tutto in maiuscolo) ove ha la sede legale il soggetto; nel caso di soggetti esteri, *se presente*, è valorizzato con lo *Zip code* della sede legale; ad esempio :code:`H501` (Roma).
+          - :xml:`<Public/>` per le **PP.AA.**,
+          - :xml:`<Private/>` per i soggetti **privati**;
+
+       - :xml:`<IPACode>` *obbligatorio* per le **Pubbliche Amministrazioni** (PP.AA.) e i Gestori di Pubblici Servizi, è valorizzato con il **codice IPA** così come risultante dall'`Indice PA <https://www.indicepa.gov.it>`__ (IPA); ad esempio, :code:`ipzsspa` (Istituto Poligrafico e Zecca dello Stato S.p.A.);
+       - :xml:`<IPACategory>` valorizzato *facoltativamente* per le **PP.AA.** e gli altri soggetti iscritti ad `IPA <https://www.indicepa.gov.it>`__, è valorizzato con la sua `Categoria IPA <https://indicepa.gov.it/documentale/n-documentazione.php>`__; ad esempio, :code:`L6` (Comuni italiani) ovvero :code:`L37` (Gestori di Pubblici Servizi).
+       - :xml:`<VATNumber>` *obbligatorio* per soggetti **privati** dotati di partita IVA (e *facoltativo* altrimenti), è valorizzato con il numero di **partita IVA** (o *VAT Number* internazionale), comprensivo del codice ISO 3166-1 α2 del Paese di appartenenza, *senza* spazi; ad esempio, :code:`IT12345678901`.
+       - :xml:`<FiscalCode>` *obbligatorio* per i soggetti **privati** (e *facoltativo* altrimenti), è valorizzato con il **codice fiscale** della persona giuridica; ad esempio: :code:`12345678901`.  
+       - :xml:`<NACE2Code>` (uno o più) *obbligatorio* per i soggetti **privati** (e *facoltativo* per tutti gli altri, se ne sono dotati), è valorizzato con il `codice ATECO <https://www.istat.it/it/archivio/17888#valori>`__ del soggetto; in caso di soggetti esteri (pubblici e privati), è sempre facoltativo e valorizzato con il `codice NACE (rev. 2) <https://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm>`__ (dal quale sono declinati i codici ATECO per l'Italia); ad esempio :code:`12.34.56`. In caso si possieda più codici ATECO o NACE, questi possono essere inseriti mediante istanze mutliple delle'elemento (ciascuna contenente un unico codice)
+       - :xml:`<Municipality>` *obbligatorio*, è valorizzato con il `codice ISTAT del Comune <https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.xls>`__ (anche detto "codice Belfiore" - tutto in maiuscolo) ove ha la sede legale il soggetto; nel caso di soggetti esteri, *se presente*, è valorizzato con lo *Zip code* della sede legale; ad esempio :code:`H501` (Roma).
+       - :xml:`<Province>` *facoltativo*, è valorizzato con la sigla automobilistica della Provincia (tutta in maiuscole) dove si trova la sede legale del soggetto; ad esempio :code:`MI`; in caso di soggetti esteri, *se presente*, è valorizzato con :code:`EE`.
+       - :xml:`<Country>` *obbligatorio* per soggetti **esteri** (e *facoltativo* altrimenti), è valorizzato con il codice ISO 3166-1 α2 del Paese ove è situata la sede legale del soggetto; ad esempio :code:`IT` (Italia).  
        - Ulteriori estensioni previste dal Sistema Pubblico delle Identità Digitali (*SPID*), anche se ignorate dallo schema *Entra con CIE*. 
 
     - :xml:`<Company>` *obbligatorio* e valorizzato con il nome completo del soggetto. Nel caso delle istanze relative al Service Provider (cioè nel caso di unica istanza con attributo :xml:`contactType` valorizzato come :code:`other`, ovvero quella con l'ulteriore con attributo :xml:`entityType` valorizzato con :code:`aggregated`) tale elemento deve essere valorizzato *esattamente* come l'elemento :xml:`<OrganizationName>` (nell'istanza della lingua del Paese dell'organizzazione) presente nell'antenato indiretto :xml:`<Organization>`;
     - :xml:`<EmailAddress>` *oligatorio* e valorizzato con l'indirizzo di una casella email istituzionale (preferibilmente *non* PEC) per comunicare istituzionalmente con il Service Provider. L'indirizzo email **non** deve riportare esplicitamente dati personali di una persona fisica.
-    - :xml:`<TelephoneNumber>` *obbligatorio* e valorizzato con il numero di telefono (dotato di prefisso internazionale, *senza* spazi - ad esempio :xml:`+39061234567`) per comunicare con il Service Provider. **Non** deve essere un numero telefonico personale.
+    - :xml:`<TelephoneNumber>` *facoltativo* e valorizzato con il numero di telefono (dotato di prefisso internazionale, *senza* spazi - ad esempio :xml:`+39061234567`) per comunicare con il Service Provider. **Non** deve essere un numero telefonico personale.
 
 
 .. note::
@@ -244,7 +248,6 @@ I sopraelencati elementi :xml:`<ContactPerson>` con attributo :xml:`contactType`
 Estensioni SAML
 ---------------
 Gli elementi :xml:`<Extensions>` opzionalmente presenti nei metadata SAML servono a contenere estensioni proprietarie -- dello schema *Entra con CIE* o relative ad altri schemi di identificazione elettronica (quali ad esempio *SPID*).
-Da specifiche SAML, ogni elemento all'interno di un elemento :xml:`<Extensions>` deve utilizzare un proprio *namespace* XML, opportunamente indicato nella radice del metadata, nell'elemento stesso o nei suoi figli. Nella fattispecie, le estensioni prorpie dello schema *Entra con CIE* usano il *namespace* :code:`https://www.cartaidentita.interno.gov.it/saml-extensions`.
 
 Ad esempio, tra le estensioni previste è possibile indicare le informazioni relative al Service Provider che l'Identity Provider visualizza sulla sua schermata di consenso all'invio degli attributi mediante l'elemento :xml:`<UIInfo>` e il tag :xml:`<DisplayName>` (appartenenti al *namespace*  :code:`xmlns:mdui="urn:oasis:name:tc:SAML:metadata:ui` abbreviato come :code:`mdui`).
 
