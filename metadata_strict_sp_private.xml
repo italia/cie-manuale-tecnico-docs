@@ -1,0 +1,47 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     xmlns:cie="https://www.cartaidentita.interno.gov.it/saml-extensions"
+                     entityID="https://entityidsp">
+  <ds:Signature> [...] </ds:Signature>
+  <md:SPSSODescriptor AuthnRequestsSigned="true"
+                      WantAssertionsSigned="true"
+                      protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate> [...] </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                            Location="https://url_esempio_SLO_Redirect" />
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                                 Location="https://url_esempio_POST"
+                                 index="0"
+                                 isDefault="true" />
+    <md:AttributeConsumingService index="0">
+      <md:ServiceName xml:lang="">urn:uuid:86eabbc2-6023-4f8d-a7dc-22401f5ac4fe</md:ServiceName>
+      <md:RequestedAttribute Name="name" />
+      <md:RequestedAttribute Name="familyName" />
+      <md:RequestedAttribute Name="dateOfBirth" />
+      <md:RequestedAttribute Name="fiscalNumber" />
+    </md:AttributeConsumingService>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="it">Service Provider Privato s.r.l.</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="it">SPP</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="it">https://www.esempio_sp_privato.it</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="administrative">
+    <md:Extensions>
+      <cie:Private/>
+      <cie:VATNumber>IT01234567890</cie:VATNumber>
+      <cie:FiscalCode>9876543210</cie:FiscalCode>
+      <cie:NACE2Code>CODICE_ATECO</cie:NACE2Code>
+      <cie:Municipality>CODICE_ISTAT</cie:Municipality>
+    </md:Extensions>
+    <md:Company>Service Provider Privato s.r.l.</md:Company>
+    <md:EmailAddress>esempio_sp_privato@spp.it</md:EmailAddress>
+    <md:TelephoneNumber>+39061234567</md:TelephoneNumber>
+  </md:ContactPerson>
+</md:EntityDescriptor>

@@ -101,7 +101,7 @@ Gli elementi che sono contenuti all'interno dell':xml:`<SPSSODescriptor>` [e la 
     
     - :xml:`<KeyDescriptor>` [uno o più]; 
     - :xml:`<SingleLogoutService>` [uno o più];
-    - :xml:`<md:NameIDFormat>` [facoltativo, al massimo uno];
+    - :xml:`<NameIDFormat>` [facoltativo, al massimo uno];
     - :xml:`<AssertionConsumerService>` [uno o più];
     - :xml:`<AttributeConsumingService>` [uno o più];
     - :xml:`<Extensions>` [al massimo uno]: Elemento **facoltativo**, riservato ad estensioni SAML relative a funzionalità aggiuntive del SP.
@@ -248,152 +248,21 @@ I sopraelencati elementi :xml:`<ContactPerson>` sono così valorizzati:
 Estensioni SAML
 ---------------
 Gli elementi :xml:`<Extensions>` opzionalmente presenti nei metadata SAML servono a contenere estensioni proprietarie -- dello schema *Entra con CIE* o relative ad altri schemi di identificazione elettronica (quali ad esempio *SPID*).
-
-Ad esempio, tra le estensioni previste è possibile indicare le informazioni relative al Service Provider che l'Identity Provider visualizza sulla sua schermata di consenso all'invio degli attributi mediante l'elemento :xml:`<UIInfo>` e il tag :xml:`<DisplayName>` (appartenenti al *namespace*  :code:`xmlns:mdui="urn:oasis:name:tc:SAML:metadata:ui` abbreviato come :code:`mdui`).
-
-.. code-block:: xml
-    :linenos:
-
-    <md:Extensions>
-        <mdui:UIInfo>
-            <mdui:DisplayName xml:lang='it'>NOME DEL SERVICE PROVIDER</md:DisplayName>
-        </mdui:UIInfo>
-    </md:Extensions>
-
 Le implementazioni tecniche che non "riconoscono" particolari ulteriori estensioni oltre a quelle dello schema *Entra con CIE*, **devono** ignorarle (fintanto che siano rappresentate in una sintassi XML formalmente corretta) senza produrre condizioni di errore. 
 
 -------------------
 Esempio di metadata
 -------------------
-Di seguito si riporta un esempio di metadata per un Service Provider che si presenta autonomamente (senza un referente amministrativo / partner tecnologico "esterno"). In questo esempio, essendo IPZS un Gestore di Pubblico servizio, le estensioni SAML utilizzate sono quelle obbligatoriamente previste per il soggetto pubblico, più facoltativamente quelle dell'Ente pubblico (che un gestore di pubblico servizio può avere).
-
-.. code-block:: xml
-    :linenos:
-    
-    <md:EntityDescriptor 
-      xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" 
-      xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
-      xmlns:cie="https://www.cartaidentita.interno.gov.it/saml-extensions" 
-      entityID="https://entityid.service-provider/cie">   
-        <ds:Signature>
-            [...]
-        </ds:Signature>
-        <md:SPSSODescriptor 
-          AuthnRequestsSigned="true" 
-          WantAssertionsSigned="true" 
-          protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-            <md:KeyDescriptor use='signing'>
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate> [...] </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </md:KeyDescriptor>
-            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://service_provider/logout_service" />
-            <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://service_provider/assertion_consumer" index="0" isDefault="true" />
-            <md:AttributeConsumingService index="0">
-                <md:ServiceName xml:lang="">b76df621-7279-4d88-93f6-7c99f06df809</md:ServiceName>
-                <md:ServiceDescription xml:lang="it">NOME DELLA CATEGORIA DI ATTRIBUTI</md:ServiceDescription>
-                <md:ServiceDescription xml:lang="en">eIDAS Minimum Data Set</md:ServiceDescription>
-                <md:RequestedAttribute Name="name" />
-                <md:RequestedAttribute Name="familyName" />
-                <md:RequestedAttribute Name="dateOfBirth" />
-                <md:RequestedAttribute Name="fiscalNumber" />
-            </md:AttributeConsumingService>
-        </md:SPSSODescriptor>
-        <md:Organization>
-            <md:OrganizationName xml:lang="it">Istituto Poligrafico e Zecca dello Stato S.p.A.</md:OrganizationName>
-            <md:OrganizationDisplayName xml:lang="it">IPZS</md:OrganizationDisplayName>
-            <md:OrganizationURL xml:lang="it">https://www.ipzs.it</md:OrganizationURL>
-            <md:OrganizationName xml:lang="en">Italian Polygraphic and State Mint</md:OrganizationName>
-            <md:OrganizationDisplayName xml:lang="en">IPZS</md:OrganizationDisplayName>
-            <md:OrganizationURL xml:lang="en">https://www.cert.ipzs.it/eng/</md:OrganizationURL>
-        </md:Organization>
-        <md:ContactPerson contactType="administrative">
-            <md:Extensions>
-                <cie:IPACode>ipzsspa</cie:IPACode>
-                <cie:IPACategory>L37</cie:IPACategory>
-                <cie:VATNumber>IT00880711007</cie:VATNumber>
-                <cue:FiscalCode>00399810589</cie:FiscalCode>
-                <cie:NACE2Code>18.12.00</cie:NACE2Code>
-                <cue:Private/>
-                <cie:Country>IT</cie:Country>
-                <cie:Province>RM</cie:Province>
-                <cie:Municipality>H501</cie:Municipality>
-            </md:Extensions>
-            <md:Company>Istituto Poligrafico e Zecca dello Stato S.p.A.</md:Company>
-            <md:EmailAddress>informazioni@ipzs.it</md:EmailAddress>
-            <md:TelephoneNumber>+390685081</md:TelephoneNumber>
-        </md:ContactPerson>
-    </md:EntityDescriptor>
+Di seguito si riporta un esempio di metadata per un Service Provider privato che si presenta autonomamente (senza un partner tecnologico "esterno"). Questo esempio include i soli elementi obbligatori previsti dal presente manuale.
 
 
-Di seguito si riporta un esempio di metadata per un Service Provider (nell'esempio pubblico) che si presenta per tramite di un partner tecnologico (nell'esempio privato) che funge da referente tecnico "esterno" al SP.
+.. literalinclude:: metadata_strict_sp_private.xml
+   :language: xml
+   :linenos:
 
-.. code-block:: xml
-    :linenos:
-    
-    <md:EntityDescriptor 
-      xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" 
-      xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
-      xmlns:cie="https://www.cartaidentita.interno.gov.it/saml-extensions" 
-      entityID="https://entityID.aggregatore/pub-ag-full/entityID.aggregato">   
-        <ds:Signature>
-            [...]
-        </ds:Signature>
-        <md:SPSSODescriptor 
-          AuthnRequestsSigned="true" 
-          WantAssertionsSigned="true" 
-          protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-            <md:KeyDescriptor use='signing'>
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate> [...] </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </md:KeyDescriptor>
-            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://service_provider/logout_service" />
-            <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://service_provider/assertion_consumer" index="0" isDefault="true" />
-            <md:AttributeConsumingService index="0">
-                <md:ServiceName xml:lang="">b76df621-7279-4d88-93f6-7c99f06df809</md:ServiceName>
-                <md:ServiceDescription xml:lang="it">NOME DELLA CATEGORIA DI ATTRIBUTI</md:ServiceDescription>
-                <md:ServiceDescription xml:lang="en">eIDAS Minimum Data Set</md:ServiceDescription>
-                <md:RequestedAttribute Name="name"/>
-                <md:RequestedAttribute Name="familyName"/>
-                <md:RequestedAttribute Name="dateOfBirth"/>
-                <md:RequestedAttribute Name="fiscalNumber"/>
-            </md:AttributeConsumingService>
-        </md:SPSSODescriptor>
-        <md:Organization>
-            <md:OrganizationName xml:lang="it">Istituto Service Provider di Esempio</md:OrganizationName>
-            <md:OrganizationDisplayName xml:lang="it">ISPE</md:OrganizationDisplayName>
-            <md:OrganizationURL xml:lang="it">https://ispesempio.gov.it/it/index.html</md:OrganizationURL>
-        </md:Organization>
-        <md:ContactPerson contactType="technical">
-            <md:Extensions>
-                <cie:VATNumber>IT01234567890</cie:VATNumber>
-                <cie:FiscalCode>9753108642</cie:FiscalCode>
-                <cie:NACE2Code>codiceATECO_referenteTecnico</cie:NACE2Code>
-                <cie:Private/>
-                <cie:Country>IT</cie:Country>
-                <cie:Municipality>codiceISTAT_referenteTecnico</cie:Municipality>
-            </md:Extensions>
-            <md:Company>Partner Tecnologico per Soluzioni di Identità Federata s.r.l.</md:Company>
-            <md:EmailAddress>info.cie@partnertecnologicoidfederata.com</md:EmailAddress>
-            <md:TelephoneNumber>+390999135792</md:TelephoneNumber>
-        </md:ContactPerson>
-        <md:ContactPerson contactType="administrative">
-            <md:Extensions>
-                <cie:IPACode>codiceIPA_soggetto</spid:IPACode>
-                <cie:IPACategory>categoriaIPA_SP</cie:IPACategory>
-                <cie:FiscalCode>2468013579</spid:FiscalCode>
-                <cie:Public/>
-                <cie:Country>IT</cie:Country>
-                <cie:Province>sigla_provincia_SP</cie:Province>
-                <cie:Municipality>codiceISTAT_comune_SP</cie:Municipality>
-            </md:Extensions>
-            <md:Company>Istituto Service Provider di Esempio</md:Company>
-            <md:EmailAddress>info@ispesempio.gov.it</md:EmailAddress>
-            <md:TelephoneNumber>+390011223344</md:TelephoneNumber>
-        </md:ContactPerson>
-    </md:EntityDescriptor>
+
+Di seguito si riporta un esempio di metadata per un Service Provider (nell'esempio pubblico) che si presenta per tramite di un partner tecnologico (nell'esempio privato) che funge da referente tecnico "esterno" al SP. Questo esempio include, oltre agli elementi obbligatori, anche alcuni di quelli opzionali.
+
+.. literalinclude:: metadata_full_sp_pubblico_tp_private.xml
+   :language: xml
+   :linenos:

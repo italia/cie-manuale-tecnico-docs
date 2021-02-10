@@ -4,7 +4,6 @@ Manuale tecnico per i fornitori di Servizi Pubblici e Privati
 
 .. raw:: latex 
    
-   \usepackage{pdfpages}
    \makeatletter\@openrightfalse
 	\chapter{Introduzione}
 
