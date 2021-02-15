@@ -29,7 +29,7 @@ Il Service Provider (SP) deve predisporre un file di metadata conforme allo stan
 
 Struttura del metadata 
 ======================
- Un file metadata é strutturato gerarchicamente in un elemento radice :xml:`<md:EntityDescriptor>` (un server SAML che esegue determinati compiti per conto ad esempio di un SP) e uno o piú elementi ad esso associato. 
+ Un file metadata é strutturato gerarchicamente in un elemento radice :xml:`<md:EntityDescriptor>` (un server SAML che esegue determinati compiti per conto ad esempio di un SP) e uno o piú elementi ad esso associato. Diversamente da quanto prescritto dallo standard SAML v.2, che consente, tramite l'elemento radice :xml:`md:EntitiesDescriptor>`, di inserire in un unico metadata più :xml:`<md:EntityDescriptor>`, lo schema "Entra con CIE" prevede obbligatoriamente un solo elemento :xml:`<md:EntityDescriptor>` come radice del metadata.
 
 .. code-block:: xml
     :linenos:
@@ -61,8 +61,7 @@ Si consiglia che i *namespace* XML rilevanti per il metadata SAML (sopratutto qu
     <md:EntityDescriptor 
       xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" 
       xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
-      entityID="https://service-provider.it/sp"
-      ID="...">   
+      entityID="https://service-provider.it/sp">   
         <ds:Signature> [...] </ds:Signature>
         <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
             [...]
@@ -94,7 +93,7 @@ Le informazioni tecnicamente più rilevanti sono contenute nell'elemento :xml:`<
 Gli attributi dell'elemento :xml:`<SPSSODescriptor>` che **devono** essere presenti sono:
 
     - :xml:`protocolSupportEnumeration`: indica il protocollo SAML supportato che nel caso di Entra con CIE é SAML v2.0 e che deve quindi necessariamente essere valorizzato con la stringa :code:`urn:oasis:names:tc:SAML:2.0:protocol`;  
-    - :xml:`AuthnRequestSigned`: booleano che indica se le richieste di autenticazione sono sigillate elettronicamente o meno; **deve** essere valorizzato con :code:`true`;
+    - :xml:`AuthnRequestsSigned`: booleano che indica se le richieste di autenticazione sono sigillate elettronicamente o meno; **deve** essere valorizzato con :code:`true`;
     - :xml:`WantAssertionsSigned`: booleano che indica se il SP si aspetta che le asserzioni SAML contenute nella risposta di autenticazione siano sigillate elettronicamente o meno; **deve** essere valorizzato con :code:`true`.
 
 Gli elementi che sono contenuti all'interno dell':xml:`<SPSSODescriptor>` [e la loro cardinalità] sono riportati di seguito:
@@ -141,19 +140,18 @@ Deve essere presente **almeno una** istanza *Assertion Consumer Service* (**AsCS
     
     - :xml:`Binding`: valorizzato alternativamente con:
 
-        - :code:`urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`, (almeno un'istanza **deve** avere questo metodo per lo schema *Entra con CIE*);
+        - :code:`urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`;
         - :code:`urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`;
-        - :code:`urn:oasis:names:tc:SAML:2.0:bindings:HTTP-SOAP`;
     
     - :xml:`Location`: URL in https dell'*endpoint* del servizio per la ricezione delle risposte di autenticazione;
     
-    - :xml:`index`: valorizzato con un numero intero non-negativo che identifica *univocamente* il AsCS in fase di richiesta di autenticazione:
-    
-       - **deve** essere presente almeno l'istanza con indice pari a :code:`0`;
+    - :xml:`index`: valorizzato con un numero intero non-negativo che identifica *univocamente* il AsCS in fase di richiesta di autenticazione;
 
-    - :xml:`isDefault`: **obbligatorio** almeno in un AsCS, è valorizzato con un booleano che indica quale sia il AsCS di default;
+    - :xml:`isDefault`: **facoltativo**, è valorizzato con un booleano che indica quale sia il AsCS di default;
     
-       - **un solo** AsCS (quello con :xml:`index` pari a :code:`0`) deve avere questo attributo valorizzato con :code:`true` (tutti gli altri AsCS possono omettere questo attributo, oppure valorizzarlo con :code:`false`); 
+.. note::
+    
+    **un solo** AsCS (solitamente quello con :xml:`index` pari a :code:`0`) può avere l'attributo :xml:`isDefault` valorizzato con :code:`true` (tutti gli altri AsCS possono omettere questo attributo, oppure valorizzarlo con :code:`false`); 
 
 Attribute Consuming Service
 ---------------------------
@@ -163,7 +161,7 @@ Deve essere presente **almeno una** istanza di *Attribute Consuming Service* (**
 
 All'interno di ciascun AtCS sono presenti i seguenti elementi [indicati con la loro cardinalità]:
 
-    - :xml:`<ServiceName>` [uno], contenente un *UIID* dell'*attribute set* richiedibile dal SP, comprensivo dell'attributo :xml:`xmlns:lang`, valorizzato con una stringa vuota.
+    - :xml:`<ServiceName>` [uno], contenente un *UUID v.4* dell'*attribute set* richiedibile dal SP, comprensivo dell'attributo :xml:`xmlns:lang`, valorizzato con una stringa vuota.
 
     - :xml:`<ServiceDescription>` [zero o più], ciascuno contenente una descrizione testuale dell'*attribute set*.
     
@@ -206,6 +204,18 @@ Ciascuna lingua è indicata con un'istanza della terna *completa* dei seguenti e
     - :xml:`<OrganizationDisplayName>`: Denominazione del SP - eventualmente senza l'esplicitazione di acronimi (p.es. :code:`INPS`). Il valore di questo elemento è utilizzato dall'Identity Provider per mostrare all'utente (nella schermata di autenticazione) il SP a cui stanno per essere inviati gli attributi richiesti.
     - :xml:`<OrganizationURL>`: La URL di una pagina web del sito istituzionale dell'organizzazione (con la lingua dei testi della pagina corrispondente a quanto ripotato nel corrispondente attributo :xml:`xmlns:lang`).
 
+.. code-block:: xml
+    :linenos:
+    
+    <md:Organization>
+        <md:OrganizationName xml:lang="it">Istituto Service Provider</md:OrganizationName>
+        <md:OrganizationName xml:lang="en">Service Provider Institute</md:OrganizationName>
+        <md:OrganizationDisplayName xml:lang="it">ISP</md:OrganizationDisplayName>
+        <md:OrganizationDisplayName xml:lang="en">SPI</md:OrganizationDisplayName>
+        <md:OrganizationURL xml:lang="it">https://www.isp.it</md:OrganizationURL>
+        <md:OrganizationURL xml:lang="en">https://www.isp.it</md:OrganizationURL>
+    </md:Organization>
+
 --------------------------------------------
 Informazioni di censimento e contatto
 --------------------------------------------
@@ -227,7 +237,7 @@ I sopraelencati elementi :xml:`<ContactPerson>` sono così valorizzati:
           - :xml:`<Private/>` per i soggetti **privati**;
 
        - :xml:`<IPACode>` *obbligatorio* per le **Pubbliche Amministrazioni** (PP.AA.) e i Gestori di Pubblici Servizi, è valorizzato con il **codice IPA** così come risultante dall'`Indice PA <https://www.indicepa.gov.it>`__ (IPA); ad esempio, :code:`ipzsspa` (Istituto Poligrafico e Zecca dello Stato S.p.A.);
-       - :xml:`<IPACategory>` valorizzato *facoltativamente* per le **PP.AA.** e gli altri soggetti iscritti ad `IPA <https://www.indicepa.gov.it>`__, è valorizzato con la sua `Categoria IPA <https://indicepa.gov.it/documentale/n-documentazione.php>`__; ad esempio, :code:`L6` (Comuni italiani) ovvero :code:`L37` (Gestori di Pubblici Servizi).
+       - :xml:`<IPACategory>` valorizzato *facoltativamente* per le **PP.AA.** e gli altri soggetti iscritti ad `IPA <https://www.indicepa.gov.it>`__, è valorizzato con la sua `Categoria IPA <https://www.indicepa.gov.it/public-services/docs-read-service.php?dstype=FS&filename=Categorie_Amministrazioni.pdf>`__; ad esempio, :code:`L6` (Comuni italiani) ovvero :code:`L37` (Gestori di Pubblici Servizi).
        - :xml:`<VATNumber>` *obbligatorio* per soggetti **privati** dotati di partita IVA (e *facoltativo* altrimenti), è valorizzato con il numero di **partita IVA** (o *VAT Number* internazionale), comprensivo del codice ISO 3166-1 α2 del Paese di appartenenza, *senza* spazi; ad esempio, :code:`IT12345678901`.
        - :xml:`<FiscalCode>` *obbligatorio* per i soggetti **privati** (e *facoltativo* altrimenti), è valorizzato con il **codice fiscale** della persona giuridica; ad esempio: :code:`12345678901`.  
        - :xml:`<NACE2Code>` (uno o più) *obbligatorio* per i soggetti **privati** (e *facoltativo* per tutti gli altri, se ne sono dotati), è valorizzato con il `codice ATECO <https://www.istat.it/it/archivio/17888#valori>`__ del soggetto; in caso di soggetti esteri (pubblici e privati), è sempre facoltativo e valorizzato con il `codice NACE (rev. 2) <https://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm>`__ (dal quale sono declinati i codici ATECO per l'Italia); ad esempio :code:`12.34.56`. In caso si possieda più codici ATECO o NACE, questi possono essere inseriti mediante istanze mutliple delle'elemento (ciascuna contenente un unico codice)

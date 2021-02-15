@@ -38,7 +38,7 @@ L'elemento :xml:`<AuthnRequest>` costituisce il contenitore del messaggio e deve
     - :xml:`AttributeConsumingServiceIndex` riportante un indice posizionale in riferimento alla struttura :xml:`<AttributeConsumingService>` presente nei metadata del Service Provider. A tal proposito si ricorda che gli attributi richiesti nel metadata **devono** contenere il *Minimum Dataset eIDAS*.
     - :xml:`AssertionConsumerServiceURL` indica la URL a cui inviare il messaggio di risposta alla richiesta di autenticazione (l'indirizzo deve coincidere con quello del servizio riportato dall'elemento :xml:`<AssertionConsumingService>` presente nei metadata del Service Provider);
     - :xml:`ProtocolBinding` identifica il tipo di binding e **deve** essere valorizzato con :code:`urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`.
-    - :xml:`ForceAuthn` è **sempre** valorizzato con :code:`true` o :code:`true` in quanto si richiede un livello di autenticazione di massimo livello di sicurezza.
+    - :xml:`ForceAuthn` è **sempre** valorizzato con :code:`true` in quanto si richiede un livello di autenticazione di massimo livello di sicurezza.
     - :xml:`IssueInstant` indica l'istante di emissione della richiesta, in formato UTC (p.es. :code:`AAAA-MM-GGThh:mm:ss.sssZ`)
     - :xml:`ID` univoco basato su un Universally Unique Identifier (**UUID**) o su una combinazione origine + timestamp (quest'ultimo generato con una precisione di almeno un millesimo di secondo per garantire l'univocità).
     - :xml:`Version` coerentemente con la versione di SAML adottata; attualmente la :code:`2.0`.
