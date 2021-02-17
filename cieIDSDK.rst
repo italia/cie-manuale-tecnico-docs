@@ -199,7 +199,7 @@ Il kit integra per il momento il solo flusso di autenticazione con reindirizzame
 Flusso con reindirizzamento
 ---------------------------
 
-Il flusso di autenticazione per reindirizzamento permette ad un Service Provider accreditato di integrare l'autenticazione Entra con CIE nella propria app iOS, demandando le operazioni di autenticazione all'app CieID. Tale flusso di autenticazione richiede che l'utente abbia l'app CieID installata sul proprio smartphone.
+Il flusso di autenticazione con reindirizzamento permette ad un Service Provider accreditato di integrare l'autenticazione Entra con CIE nella propria app iOS, demandando le operazioni di autenticazione all'app CieID. Questo flusso di autenticazione richiede che l'utente abbia l'app CieID installata sul proprio smartphone **in versione 1.2.0 o successiva.**
 
 Flusso interno
 --------------
@@ -253,14 +253,14 @@ A seguito dell'apertura dell'app la webView dovrà ricevere un nuovo URL e prose
 Configurazione Service Provider URL
 -----------------------------------
 
-Entrambi i flussi vengono avviati tramite l'utilizzo di una WebView, é per questo necessario caricare la URL della pagina web del Service Provider che integra il pulsante "Entra con CIE" all'interno del file **Info.plist**, aggiungendo un parametro chiamato **SP_URL** di tipo **String**, come mostrato nell'esempio:
+Entrambi i flussi vengono avviati tramite l'utilizzo di una WebView, per questo motivo è necessario caricare la URL dell'ambiente di produzione della pagina web del Service Provider che integra il pulsante "Entra con CIE" all'interno del file **Info.plist**, aggiungendo un parametro chiamato **SP_URL** di tipo **String**, come mostrato nell'esempio:
 
 .. code-block:: xml
     :linenos:
 
     <key>SP_URL</key>
-    <string>Inserisci qui l'URL del Service Provider</string>
-
+    <string>Inserisci qui l'URL dell'ambiente di produzione del Service Provider</string>
+    
 
 Importazione del pulsante Entra con CIE
 ---------------------------------------
