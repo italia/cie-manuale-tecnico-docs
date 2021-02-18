@@ -1,0 +1,10 @@
+﻿Error code,4,4,5,6,6
+Scenario di riferimento,Formato binding non corretto,Formato binding non corretto,Verifica della firma fallita,Binding su metodo HTTP errato,Binding su metodo HTTP errato
+Binding,HTTP Redirect,HTTP POST,HTTP Redirect,HTTP Redirect,HTTP POST
+HTTP status code,403,403,403,403,403
+SAML Status code/Sub Status/StatusMessage,n.a.,n.a.,n.a.,n.a.,n.a.
+Destinatario notifica,Utente,Utente,Utente,Utente,Utente
+Schermata IdP (CIE ID SERVER),Pagina di cortesia con messaggio “Formato richiesta non corretto - Contattare il gestore del servizio”,Pagina di cortesia con messaggio “Formato richiesta non corretto - Contattare il gestore del servizio”,Pagina di cortesia con messaggio "Impossibile stabilire l’autenticità della richiesta di autenticazione - Contattare il gestore del servizio”,Pagina di cortesia con messaggio “Formato richiesta non ricevibile - Contattare il gestore del servizio”,Pagina di cortesia con messaggio “Formato richiesta non ricevibile - Contattare il gestore del servizio”
+Troubleshooting utente,Contattare il gestore del servizio,Contattare il gestore del servizio,Contattare il gestore del servizio,Contattare il gestore del servizio,Contattare il gestore del servizio
+Troubleshooting SP,Verificare la conformità del formato del messaggio di richiesta. Fornire pagina di cortesia all'utente,"Verificare la conformità del formato del messaggio di richiesta. Fornire pagina di cortesia all'utente",Verificare certificato o modalità di apposizione firma,Verificare metadata CIE ID SERVER,Verificare metadata CIE ID SERVER
+Note,Parametri obbligatori: SAMLRequest SigAlg Signature. Parametri non obbligatori: RelayState, Parametri obbligatori: SAMLRequest. Parametri non obbligatori: RelayState,Firma sulla richiesta non presente corrotta non conforme in uno dei parametri con certificato scaduto o con certificato non associato al corretto EntityID nei metadati registrati,Invio richiesta in HTTP-Redirect su entrypoint HTTP-POST dell'identity,Invio richiesta in HTTP-POST su entrypoint HTTP-Redirect dell'identity

@@ -1,0 +1,10 @@
+﻿Error code,2,3
+Scenario di riferimento,Indisponibilità sistema,Errore di sistema
+Binding,HTTP POST,HTTP Redirect
+HTTP status code,,500
+SAML Status code/Sub Status/StatusMessage,n.a.,n.a.
+Destinatario notifica,Utente,Utente
+Schermata IdP (CIE ID SERVER),Messaggio di errore generico,Pagina di cortesia con messaggio “Sistema di autenticazione non disponibile -Riprovare più tardi”
+Troubleshooting utente,Ripetere l’accesso al servizio in un secondo momento ,Ripetere l’accesso al servizio in un secondo momento 
+Troubleshooting SP,,
+Note,,

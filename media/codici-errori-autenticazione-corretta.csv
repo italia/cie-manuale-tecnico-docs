@@ -1,0 +1,10 @@
+Error code,1
+Scenario di riferimento,Autenticazione corretta
+Binding,HTTP POST / HTTP Redirect
+HTTP status code,200
+SAML Status code/Sub Status/StatusMessage,urn:oasis:names:tc:SAML:2.0:status:Success 
+Destinatario notifica,Fornitore del servizio (SP)
+Schermata IdP (CIE ID SERVER),
+Troubleshooting utente,
+Troubleshooting SP,
+Note,

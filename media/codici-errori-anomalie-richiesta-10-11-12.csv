@@ -1,0 +1,10 @@
+﻿Error code,10,11,12
+Scenario di riferimento,Issuer non presente - malformato o non corrispondete all'entità che sottoscrive la richiesta,ID (Identificatore richiesta) non presente malformato o non conforme,RequestAuthnContext non presente malformato o non previsto da scenario eID CIE
+Binding,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect
+HTTP status code,403,n.a.,n.a.
+SAML Status code/Sub Status/StatusMessage,n.a.,urn:oasis:names:tc:SAML:2.0:status:Requester. ErrorCode nr11 ,urn:oasis:names:tc:SAML:2.0:status:Requester urn:oasis:names:tc:SAML:2.0:statuss:NoAuthnContext. ErrorCode nr12
+Destinatario notifica,Utente,Fornitore del servizio (SP),Fornitore del servizio (SP)
+Schermata IdP (CIE ID SERVER),Pagina di cortesia con messaggio “Formato richiesta non corretto - Contattare il gestore del servizio”,,Pagina temporanea con messaggio di errore: “Tipologia di autenticazione non supportata”
+Troubleshooting utente,Contattare il gestore del servizio,,
+Troubleshooting SP,Verificare la conformità del formato del messaggio di richiesta.,Verificare la conformità del formato del messaggio di richiesta.,Informare l’utente
+Note,,,Identificatore necessario per la correlazione con la risposta. L’eventuale presenza dell’anomalia va verificata e segnalata solo a seguito di una positiva verifica della firma.

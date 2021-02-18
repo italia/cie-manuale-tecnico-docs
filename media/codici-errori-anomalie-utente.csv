@@ -1,0 +1,10 @@
+﻿Error code,21,22,23,25
+Scenario di riferimento,Timeout durante l’autenticazione utente,Utente nega il consenso all’invio di dati al SP in caso di sessione vigente,Utente con CIE scaduta/revocata,Processo di autenticazione annullato dall’utente
+Binding,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect
+HTTP status code,n.a.,n.a.,n.a.,n.a.
+SAML Status code/Sub Status/StatusMessage,urn:oasis:names:tc:SAML:2.0:status:Responder urn:oasis:names:tc:SAML:2.0:status:AuthnFailed ErrorCode nr21,urn:oasis:names:tc:SAML:2.0:status:Responder urn:oasis:names:tc:SAML:2.0:status:AuthnFailed ErrorCode nr22,urn:oasis:names:tc:SAML:2.0:status:Responder urn:oasis:names:tc:SAML:2.0:status:AuthnFailed ErrorCode nr23,urn:oasis:names:tc:SAML:2.0:status:Responder urn:oasis:names:tc:SAML:2.0:status:AuthnFailed ErrorCode nr25
+Destinatario notifica,Fornitore del servizio (SP),"Utente e Fornitore del servizio (SP)","Utente e Fornitore del servizio (SP)","Utente e Fornitore del servizio (SP)"
+Schermata IdP (CIE ID SERVER),,,Viene notificato all’utente una finestra - nel system tray di Windows - che avverte che la CIE potrebbe essere scaduta o revocata,
+Troubleshooting utente,L’operazione di autenticazione deve essere completata entro un determinato periodo di tempo,Necessario il consenso per la fruizione del servizio,"Verificare che la CIE non sia scaduta. Verificare che non sia stata revocata. Eventualmente contattare l'assistenza CIE a cie.cittadini@interno.it",
+Troubleshooting SP,Fornire una pagina di cortesia che ricorda al cittadino di completare la richiesta di autenticazione entro un determinato periodo di tempo,Fornire una pagina di cortesia notificando all'utente che il diniego al consenso ha determinato il mancato accesso al servizio richiesto,Notificare all'utente le ragioni che hanno determinato il mancato accesso al servizio richiesto,Fornire una pagina di cortesia notificando all'utente le ragioni che hanno determinato il mancato accesso al servizio richiesto
+Note,,,,

@@ -1,0 +1,10 @@
+﻿Error code,16,17,18
+Scenario di riferimento,AssertionConsumerService non correttamente valorizzato,Attributo Format dell'elemento NameIDPolicy assente o non valorizzato secondo specifica,AttributeConsumerServiceIndex malformato o che riferisce a un valore non registrato nei metadati di SP
+Binding,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect
+HTTP status code,n.a.,n.a.,n.a.
+SAML Status code/Sub Status/StatusMessage,urn:oasis:names:tc:SAML:2.0:status:Requester urn:oasis:names:tc:SAML:2.0:status:RequestUnsupported. ErrorCode nr16,urn:oasis:names:tc:SAML:2.0:status:Requester urn:oasis:names:tc:SAML:2.0:status:RequestUnsupp orted. ErrorCode nr17,urn:oasis:names:tc:SAML:2.0:status:Requester urn:oasis:names:tc:SAML:2.0:status:RequestUnsupp orted. ErrorCode nr18
+Destinatario notifica,Fornitore del servizio (SP),Fornitore del servizio (SP),Fornitore del servizio (SP)
+Schermata IdP (CIE ID SERVER),,,
+Troubleshooting utente,,,
+Troubleshooting SP,Verificare la conformità del formato del messaggio di richiesta. Fornire pagina di cortesia all'utente,Verificare la conformità del formato del messaggio di richiesta. Fornire pagina di cortesia all'utente,Riformulare la richiesta con un valore dell’indice presente nei metadati
+Note,,,

@@ -3,7 +3,7 @@ Manuale tecnico per i fornitori di Servizi Pubblici e Privati
 =============================================================
 
 .. raw:: latex 
-   
+
    \makeatletter\@openrightfalse
 	\chapter{Introduzione}
 
@@ -28,7 +28,5 @@ Lo scopo del presente documento è quello di definire le specifiche tecniche per
    tracciature.rst
    assistenza.rst
    pki.rst
+   codiciErrore.rst
 
-.. raw:: latex
-
-   \includepdf[landscape=true,pages=-]{./media/cie_codici_errori.pdf}

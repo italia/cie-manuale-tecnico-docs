@@ -247,8 +247,8 @@ I sopraelencati elementi :xml:`<ContactPerson>` sono così valorizzati:
        - Ulteriori estensioni previste dal Sistema Pubblico delle Identità Digitali (*SPID*), anche se ignorate dallo schema *Entra con CIE*. 
 
     - :xml:`<Company>` *obbligatorio* e valorizzato con il nome completo del soggetto. Nel caso delle istanze relative al Service Provider (cioè nel caso di istanza con attributo :xml:`contactType` valorizzato come :code:`administrative`) tale elemento deve essere valorizzato *esattamente* come l'elemento :xml:`<OrganizationName>` (nell'istanza della lingua del Paese dell'organizzazione) presente nell'antenato indiretto :xml:`<Organization>`;
-    - :xml:`<EmailAddress>` *oligatorio* e valorizzato con l'indirizzo di una casella email istituzionale (preferibilmente *non* PEC) per comunicare istituzionalmente con il Service Provider. L'indirizzo email **non** deve riportare esplicitamente dati personali di una persona fisica.
-    - :xml:`<TelephoneNumber>` *facoltativo* e valorizzato con il numero di telefono (dotato di prefisso internazionale, *senza* spazi - ad esempio :xml:`+39061234567`) per comunicare con il Service Provider. **Non** deve essere un numero telefonico personale.
+    - :xml:`<EmailAddress>` *oligatorio* e valorizzato con l'indirizzo di una casella email istituzionale (preferibilmente *non* PEC) per comunicare istituzionalmente con il Service Provider. L'indirizzo email **deve** coincidere con quello indicato in fase di richiesta di adesione riferito, a seconda della tipologia del soggetto cui si riferisce l'elemento :xml:`<ContactPerson>`, al referente amministrativo o tecnico.
+    - :xml:`<TelephoneNumber>` *facoltativo* e valorizzato con il numero di telefono (dotato di prefisso internazionale, *senza* spazi - ad esempio :xml:`+39061234567`) per comunicare con il  soggetto cui si riferisce l'elemento :xml:`<ContactPerson>`. **Non** deve essere un numero telefonico personale.
 
 
 .. note::

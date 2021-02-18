@@ -1,0 +1,10 @@
+﻿Error code,7,8,9
+Scenario di riferimento,Errore sulla verifica della firma della richiesta,Formato della richiesta non conforme alle specifiche SAML,Parametro version non presente - malformato o diverso da ‘2.0’
+Binding,HTTP POST,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect
+HTTP status code,403,n.a.,n.a.
+SAML Status code/Sub Status/StatusMessage,n.a.,urn:oasis:names:tc:SAML:2.0:status:Requester ErrorCode nr08 ,urn:oasis:names:tc:SAML:2.0:status:VersionMismatch. ErrorCode nr09 
+Destinatario notifica,Utente,Fornitore del servizio (SP),Fornitore del servizio (SP)
+Schermata IdP (CIE ID SERVER),Pagina di cortesia con messaggio “Formato richiesta non corretto - Contattare il gestore del servizio”,,
+Troubleshooting utente,Contattare il gestore del servizio,,
+Troubleshooting SP,Verificare certificato o modalità di apposizione firma,Verificare la conformità del formato del messaggio di richiesta. Fornire pagina di cortesia all'utente,Verificare la conformità del formato del messaggio di richiesta. Fornire pagina di cortesia all'utente
+Note,Firma sulla richiesta non presente - corrotta - non conforme in uno dei parametri - con certificato scaduto o con certificato non associato al corretto EntityID nei metadati registrati,Non conforme alle specifiche SAML - Il controllo deve essere operato successivamente alla verifica positiva della firma,

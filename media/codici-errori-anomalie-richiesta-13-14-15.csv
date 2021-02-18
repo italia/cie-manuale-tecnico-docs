@@ -1,0 +1,10 @@
+﻿Error code,13,14,15
+Scenario di riferimento,IssueInstant non presente malformato o non coerente con l'orario di arrivo della richiesta,destination non presente malformata o non coincidente con il Gestore delle identità ricevente la richiesta,attributo isPassive presente e attualizzato al valore true
+Binding,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect,HTTP POST / HTTP Redirect
+HTTP status code,n.a.,n.a.,n.a.
+SAML Status code/Sub Status/StatusMessage,urn:oasis:names:tc:SAML:2.0:status:Requester urn:oasis:names:tc:SAML:2.0:status:RequestDenied ErrorCode nr13 ,urn:oasis:names:tc:SAML:2.0:status:Requester urn:oasis:names:tc:SAML:2.0:status:RequestUnsupported ErrorCode nr14,urn:oasis:names:tc:SAML:2.0:status:Requester urn:oasis:names:tc:SAML:2.0:status:NoPassive ErrorCode nr15
+Destinatario notifica,Fornitore del servizio (SP),Fornitore del servizio (SP),Fornitore del servizio (SP)
+Schermata IdP (CIE ID SERVER),,,
+Troubleshooting utente,,,
+Troubleshooting SP,Verificare la conformità del formato del messaggio di richiesta. Fornire pagina di cortesia all'utente,Verificare la conformità del formato del messaggio di richiesta. Fornire pagina di cortesia all'utente,Verificare la conformità del formato del messaggio di richiesta. Fornire pagina di cortesia all'utente
+Note,,,
