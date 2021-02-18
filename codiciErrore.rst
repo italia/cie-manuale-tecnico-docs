@@ -12,7 +12,7 @@ Di seguito si riportano le tabelle con i codici di errore, alcuni dettagli relat
    :widths: 1 1
 
 .. csv-table:: Anomalie di sistema
-   :file: media\codici-errori-anomalie-sistema.csv
+   :file: ./media/codici-errori-anomalie-sistema.csv
    :header-rows: 1
    :widths: 1 1 1
 
@@ -21,7 +21,7 @@ Di seguito si riportano le tabelle con i codici di errore, alcuni dettagli relat
     \newpage
 
 .. csv-table:: Anomalie di binding
-   :file: media\codici-errori-anomalie-binding.csv
+   :file: ./media/codici-errori-anomalie-binding.csv
    :class: longtable
    :header-rows: 1
    :widths: 1 1 1 1 1 1 
@@ -31,7 +31,7 @@ Di seguito si riportano le tabelle con i codici di errore, alcuni dettagli relat
     \newpage
 
 .. csv-table:: Anomalie della richiesta - codici 7,8,9
-   :file: media\codici-errori-anomalie-richiesta-7-8-9.csv
+   :file: ./media/codici-errori-anomalie-richiesta-7-8-9.csv
    :class: longtable
    :header-rows: 1
    :widths: 1 1 1 1
@@ -41,7 +41,7 @@ Di seguito si riportano le tabelle con i codici di errore, alcuni dettagli relat
     \newpage
 
 .. csv-table:: Anomalie della richiesta - codici 10,11,12
-   :file: media\codici-errori-anomalie-richiesta-10-11-12.csv
+   :file: ./media/codici-errori-anomalie-richiesta-10-11-12.csv
    :class: longtable
    :header-rows: 1
    :widths: 1 1 1 1
@@ -51,7 +51,7 @@ Di seguito si riportano le tabelle con i codici di errore, alcuni dettagli relat
     \newpage
 
 .. csv-table:: Anomalie della richiesta - codici 13,14,15
-   :file: media\codici-errori-anomalie-richiesta-13-14-15.csv
+   :file: ./media/codici-errori-anomalie-richiesta-13-14-15.csv
    :class: longtable
    :header-rows: 1
    :widths: 1 1 1 1
@@ -61,7 +61,7 @@ Di seguito si riportano le tabelle con i codici di errore, alcuni dettagli relat
     \newpage
 
 .. csv-table:: Anomalie della richiesta - codici 16,17,18
-   :file: media\codici-errori-anomalie-richiesta-16-17-18.csv
+   :file: ./media/codici-errori-anomalie-richiesta-16-17-18.csv
    :class: longtable
    :header-rows: 1
    :widths: 1 1 1 1
@@ -71,7 +71,7 @@ Di seguito si riportano le tabelle con i codici di errore, alcuni dettagli relat
     \newpage
 
 .. csv-table:: Anomalie utente
-   :file: media\codici-errori-anomalie-utente.csv
+   :file: ./media/codici-errori-anomalie-utente.csv
    :class: longtable
    :header-rows: 1
    :widths: 1 1 1 1 1
