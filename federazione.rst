@@ -180,7 +180,7 @@ I soli *attribute set* utilizzabili come AtCS per lo schema *Entra con CIE* sono
     - :code:`name` (tipo :xml:`xsd:string`) **nome** della persona fisica; 
     - :code:`familyName` (tipo :xml:`xsd:string`) **cognome** della persona fisica;
     - :code:`dateOfBirth` (tipo :xml:`xsd:string`) **data di nascita** della persona fisica; 
-    - :code:`fiscalCode` (tipo :xml:`xsd:string`) **codice fiscale** della persona fisica.
+    - :code:`fiscalNumber` (tipo :xml:`xsd:string`) **codice fiscale** della persona fisica.
 
 .. code-block:: xml
     :linenos:
