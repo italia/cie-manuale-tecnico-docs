@@ -186,7 +186,7 @@ I soli *attribute set* utilizzabili come AtCS per lo schema *Entra con CIE* sono
     :linenos:
     
     <md:AttributeConsumingService index='0'>
-        <md:ServiceName xml:lang='it'>urn:uuid:bc212b14-d920-4052-900d-86cc5ab48a3a</md:ServiceName>
+        <md:ServiceName xml:lang=''>urn:uuid:bc212b14-d920-4052-900d-86cc5ab48a3a</md:ServiceName>
         <md:RequestedAttribute Name='name' NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
         <md:RequestedAttribute Name='familyName' NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
         <md:RequestedAttribute Name='dateOfBirth' NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"/>
