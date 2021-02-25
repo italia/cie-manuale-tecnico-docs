@@ -199,7 +199,7 @@ Il kit integra per il momento il solo flusso di autenticazione con reindirizzame
 Flusso con reindirizzamento
 ---------------------------
 
-Il flusso di autenticazione con reindirizzamento permette ad un Service Provider accreditato di integrare l'autenticazione Entra con CIE nella propria app iOS, demandando le operazioni di autenticazione all'app CieID. Questo flusso di autenticazione richiede che l'utente abbia l'app CieID installata sul proprio smartphone **in versione 1.2.0 o successiva.**
+Il flusso di autenticazione con reindirizzamento permette ad un Service Provider accreditato di integrare l'autenticazione Entra con CIE nella propria app iOS, demandando le operazioni di autenticazione all'app CieID. Questo flusso di autenticazione richiede che l'utente abbia l'app CieID installata sul proprio smartphone **in versione 1.2.1 o successiva.**
 
 Flusso interno
 --------------
@@ -218,6 +218,16 @@ Nel flusso di autenticazione con reindirizzamento l'applicazione CieID avrà bis
 
 Selezionare il progetto **Target**, aprire il pannello **Info** ed aprire poi il pannello **URL Types**. Compilare i campi **Identifier** e **URL Scheme** inserendo il **Bundle Identifier** dell'app, impostare poi su **none** il campo **Role**.
 
+Il parametro appena inserito nel campo **URL Scheme** dovrà essere riportato nel file **Info.plist**, aggiungendo un parametro chiamato **SP_URL_SCHEME** di tipo **String**, come mostrato nell'esempio:
+
+.. code-block:: xml
+    :linenos:
+
+    <key>SP_URL_SCHEME</key>
+    <string>Inserisci qui il parametro URL Scheme</string>
+
+
+
 A seguito dell'apertura dell'app la webView dovrà ricevere un nuovo URL e proseguire la navigazione. Di seguito si riporta il metodo **openUrlContext** da importare nello **SceneDelegate** che implementa tale logica:
 
 .. code-block:: swift
@@ -225,28 +235,29 @@ A seguito dell'apertura dell'app la webView dovrà ricevere un nuovo URL e prose
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
 
-        guard let url = URLContexts.first?.url else {
+	    guard let url = URLContexts.first?.url else {
 
-            return
+		    return
 
-        }
+	    }
 
         var urlString : String = String(url.absoluteString)
         if let httpsRange = urlString.range(of: "https://"){
 
-        //Rimozione del prefisso dell'URL SCHEME
-        let startPos = urlString.distance(from: urlString.startIndex, to: httpsRange.lowerBound)
-        urlString = String(urlString.dropFirst(startPos))
+            //Rimozione del prefisso dell'URL SCHEME
+            let startPos = urlString.distance(from: urlString.startIndex, to: httpsRange.lowerBound)
+            urlString = String(urlString.dropFirst(startPos))
 
-        //Passaggio dell'URL alla WebView
-        let response : [String:String] = ["payload": urlString]
-        let NOTIFICATION_NAME : String = "RETURN_FROM_CIEID"
+            //Passaggio dell'URL alla WebView
+            let response : [String:String] = ["payload": urlString]
+            let NOTIFICATION_NAME : String = "RETURN_FROM_CIEID"
 
-        NotificationCenter.default.post(name: 	Notification.Name(NOTIFICATION_NAME), object: nil, userInfo: response)
+            NotificationCenter.default.post(name: 	Notification.Name(NOTIFICATION_NAME), object: nil, userInfo: response)
 
-        }
+	    }
 
     }
+
 
 
 
