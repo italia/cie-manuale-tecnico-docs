@@ -88,7 +88,7 @@ Le informazioni tecnicamente più rilevanti sono contenute nell'elemento :xml:`<
 
 .. note::
 
-    In merito a gli attributi richiesti dal SP si precisa che la versione attuale del IdP può accogliere solo richieste realtive alla categoria di attributi *Minimum eIDAS Dataset* (nome, cognome, data di nascita e codice fiscale) ovvero a suoi sottoinsiemi. 
+    In merito a gli attributi richiesti dal SP si precisa che la versione attuale del IdP può accogliere solo richieste realtive alla categoria di attributi *Minimum eIDAS Dataset* (nome, cognome, data di nascita e codice fiscale). 
 
 Gli attributi dell'elemento :xml:`<SPSSODescriptor>` che **devono** essere presenti sono:
 
@@ -175,7 +175,7 @@ All'interno di ciascun AtCS sono presenti i seguenti elementi [indicati con la l
           - :code:`urn:oasis:names:tc:SAML:2.0:attrname-format:basic`,
           - :code:`urn:oasis:names:tc:SAML:2.0:attrname-format:uri`,
 
-I soli *attribute set* utilizzabili come AtCS per lo schema *Entra con CIE* sono quelli che comprendono gli attributi previsti nel *Minimum Dataset eIDAS* o suoi sottoinsiemi:
+I soli *attribute set* utilizzabili come AtCS per lo schema *Entra con CIE* sono quelli che comprendono gli attributi previsti nel *Minimum Dataset eIDAS*:
 
     - :code:`name` (tipo :xml:`xsd:string`) **nome** della persona fisica; 
     - :code:`familyName` (tipo :xml:`xsd:string`) **cognome** della persona fisica;
