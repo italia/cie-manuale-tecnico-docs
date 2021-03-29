@@ -44,7 +44,7 @@ L'elemento :xml:`<AuthnRequest>` costituisce il contenitore del messaggio e deve
     - :xml:`Version` coerentemente con la versione di SAML adottata; attualmente la :code:`2.0`.
 
 .. note::
-    - **Non** è ammesso l'uso dell'attributo :xml:`AssertionConsumerServiceIndex` al posto degli attributi :xml:`AssertionConsumerServiceURL` e :xml:`ProtocolBinding`.
+    - **In alternativa**, è ammesso l'uso dell'attributo :xml:`AssertionConsumerServiceIndex` al posto degli attributi :xml:`AssertionConsumerServiceURL` e :xml:`ProtocolBinding`.
     - L'attributo :xml:`IsPassive` **non** deve essere presente.
     - L'attributo :xml:`Destination` **deve** essere valorizzato in accordo con lo standard SAML e **non** secondo quanto prescitto dalle Regole Tecniche SPID.
 
