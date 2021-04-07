@@ -108,7 +108,7 @@ Per i Service Provider interessati a fornire al cittadino i propri servizi onlin
 
    - Flusso integrato: il processo di autenticazione viene effettuato direttamente in maniera nativa all'interno dell'App del Service Provider, il quale integra la comunicazione con la CIE mediante una libreria software rilasciata e gestita dal Poligrafico. 
 
-All'indirizzo https://github.com/italia/cieid-android-sdk, é disponibile gratuitamente una SDK Android [#]_ che mette a disposizione esempi di codice sorgente per l'integrazione dei due flussi sopra riportati nonché una libreria software per l'integrazione del flusso integrato con esempi . 
+Agli indirizzi https://github.com/italia/cieid-android-sdk e https://github.com/italia/cieid-ios-sdk, sono disponibili gratuitamente le SDK Android e iOS che mettono a disposizione esempi di codice sorgente per l'integrazione dei due flussi sopra riportati nonché una libreria software per l'integrazione del flusso integrato con esempi. 
 
 Indipendentemente dalla modalitá di realizzazione della fase di autenticazione, per realizzare lo schema Entra con CIE é necessario che il Service Provider effettui i seguenti passi operativi:
 
@@ -126,4 +126,4 @@ Nei paragrafi successivo verranno descritte nel dettaglio le fasi operative appe
 
 .. [#] L'App CieID di test é attualmente disponibile solo per dispositivi Android.
 
-.. [#] É previsto il rilascio anche di una versione per iOS. 
+ 
