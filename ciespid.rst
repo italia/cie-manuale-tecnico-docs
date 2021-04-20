@@ -21,7 +21,7 @@ Metadata
 In riferimento ai metadata, diversamente da quanto previsto per SPID, lo schema *Entra con CIE* prevede un unico modello di metadata indipendentemente dal ruolo che il soggetto svolge nell'ambito dello schema SPID. In particolare i due elementi nei quali si hanno maggiori impatti sono:
 
     - l'elemento :xml:`<AttributeConsumingService>` che contiene il set di attributi richiesti in fase di autenticazione prevede, attualmente, solo e soltanto gli attributi relativi al *Minimum Dataset eIDAS* o suoi sottoinsiemi;
-    - l'elemento :xml:`<ServiceName>` deve contenere un *UUID v.4* dell'*attribute set* richiedibile dal SP, comprensivo dell'attributo :xml:`xmlns:lang`, valorizzato con una stringa vuota;
+    - l'elemento :xml:`<ServiceName>` può contenere un *UUID v.4* dell'*attribute set* richiedibile dal SP, comprensivo dell'attributo :xml:`xmlns:lang`, valorizzato con una stringa vuota;
     - l'elemento :xml:`<md:Organization>` che contiene i dati del Service Provider in veste di persona giuridica;
     - gli elementi :xml:`<ContactPerson>` che dovranno contenere le informazioni di censimento e contatto del Service Provider e dell'eventuale partner tecnologico (cfr. :ref:`federazione`).
 

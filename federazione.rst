@@ -161,7 +161,7 @@ Deve essere presente **almeno una** istanza di *Attribute Consuming Service* (**
 
 All'interno di ciascun AtCS sono presenti i seguenti elementi [indicati con la loro cardinalità]:
 
-    - :xml:`<ServiceName>` [uno], contenente un *UUID v.4* dell'*attribute set* richiedibile dal SP, comprensivo dell'attributo :xml:`xmlns:lang`, valorizzato con una stringa vuota.
+    - :xml:`<ServiceName>` [uno], contenente un identificativo della classe di servizi relativo all'*attribute set* o, in alternativa un *UUID v.4* dell'*attribute set* richiedibile dal SP, comprensivo dell'attributo :xml:`xmlns:lang`, valorizzato con una stringa vuota.
 
     - :xml:`<ServiceDescription>` [zero o più], ciascuno contenente una descrizione testuale dell'*attribute set*.
     
