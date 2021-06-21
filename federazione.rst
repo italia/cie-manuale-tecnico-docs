@@ -18,7 +18,7 @@ CieID server è disponibile sia in ambiente di produzione che in ambiente di tes
 
 Metadata SP
 ===========
-Il Service Provider (SP) deve predisporre un file di metadata conforme allo standard SAML v2 e, tramite una apposita sezione presente nel `portale di federazione erogatori di sevizi <https://www.federazione.servizicie.interno.gov.it>`__, deve effettuare il caricamento del metadata sugli ambienti di pre-produzione e produzione messi a disposizione dal Ministero dell'Interno (cfr. il `Manuale operativo per i fornitori di servizi pubblici e privati <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__ per ulteriori dettagli sul processo di onboarding). 
+Il Service Provider (SP) deve predisporre un file di metadata conforme allo standard SAML v2 e, tramite una apposita sezione presente nel `portale di federazione erogatori di sevizi <https://federazione.servizicie.interno.gov.it>`__, deve effettuare il caricamento del metadata sugli ambienti di pre-produzione e produzione messi a disposizione dal Ministero dell'Interno (cfr. il `Manuale operativo per i fornitori di servizi pubblici e privati <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__ per ulteriori dettagli sul processo di onboarding). 
 É possibile, inoltre, aggiornare un metadata già federato utilizzando la medesima procedura di caricamento dei metadata prevista dal portale di federazione sopra citato. É consentito, nell'ambito di una richiesta di federazione, il caricamento di un solo file di metadata per ambiente, e ogni caricamento successivo andrà a sostituire il precedente file di metadata. 
 
 .. note::

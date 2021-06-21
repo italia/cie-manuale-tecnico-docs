@@ -99,7 +99,7 @@ Allo stato dell'arte questa modalitá è fruibile mediante smartphone dotati di 
       App CieID di test - Link per il download
    
    
-   Per effettuare i test in pre-produzione tramite l'App CieID di test o mediante il software CieID e agevolare gli sviluppi applicativi, é possibile usare, in caso di indisponibilitá di una CIE "autentica", le carte di test che é possibile richiedere in fase di onboarding tramite il `portale di federazione erogatori di sevizi <https://www.federazione.servizicie.interno.gov.it>`__  (cfr. il `Manuale operativo per i fornitori di servizi pubblici e privati <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__ per ulteriori dettagli sul processo di onboarding).  
+   Per effettuare i test in pre-produzione tramite l'App CieID di test o mediante il software CieID e agevolare gli sviluppi applicativi, é possibile usare, in caso di indisponibilitá di una CIE "autentica", le carte di test che é possibile richiedere in fase di onboarding tramite il `portale di federazione erogatori di sevizi <https://federazione.servizicie.interno.gov.it>`__  (cfr. il `Manuale operativo per i fornitori di servizi pubblici e privati <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__ per ulteriori dettagli sul processo di onboarding).  
 
 
 Per i Service Provider interessati a fornire al cittadino i propri servizi online tramite una App proprietaria, ci sono due modalitá di integrazione: 
