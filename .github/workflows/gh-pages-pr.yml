@@ -34,8 +34,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a script
         run: |-
-          pip install tox
-          tox -re build
+          pip install -r requirements.txt
+          sphinx-build -b html -d html/pr/doctrees . html/pr
           touch html/.nojekyll
           echo '
           <html>
@@ -48,6 +48,7 @@ jobs:
           
           <ul>
             <li><a href="it/">Italian version</a></li>
+            <li><a href="pr/">Pull Request</a></li>
           </ul>
           </body>
           </html>' > html/index.html
