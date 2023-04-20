@@ -47,6 +47,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      # Checkout the `master` branch
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+          # Put the checked out files inside the `big-island-buses/heleon` folder
+          path: master/docs
+          clean: false
+      # Delete the .git folder from `big-island-buses/heleon`
+      # This turns the files into a plain folder instead of a git repository
+      - run: rm -rf master/docs/.git
 
       - uses: actions/setup-python@v2
         with:
@@ -57,6 +68,7 @@ jobs:
       - name: Run a script
         run: |-
           ${{ env.BUILD_CMD }}
+          pip install -r requirements.txt && sphinx-build -b html -d html/master/doctrees . html/master
           touch html/.nojekyll
           echo '
           <html>
@@ -68,7 +80,8 @@ jobs:
           <h1>CIE eID - Manuale Tecnico</h1>
           
           <ul>
-            <li><a href="it/">Master version</a></li>
+            <li><a href="master/">Master version</a></li>
+            <li><a href=${GITHUB_REF}>Prova version</a></li>
           </ul>
           </body>
           </html>' > html/index.html
