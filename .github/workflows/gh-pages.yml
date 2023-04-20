@@ -29,7 +29,7 @@ env:
   PKGS_FILE: docs/requirements.txt      # .txt (`pip`) or .yml (`conda`) file
   BUILD_CMD: pip install -r requirements.txt && sphinx-build -b html -d html/master/doctrees . html/master
   PR_NAME: ${{github.event.pull_request.labels.*.name}}
-  BUILD_CMD_PR: pip install -r requirements.txt && sphinx-build -b html -d html/${{ env.PR_NAME }}/doctrees . html/${{ env.PR_NAME }} 
+  BUILD_CMD_PR: pip install -r requirements.txt && sphinx-build -b html -d html/${{PR_NAME}}/doctrees . html/${{PR_NAME}} 
   DEPLOY_BRANCH: gh-pages               #  target branch to deploy _build/html
   ROOT_REDIRECT: latest     
 
