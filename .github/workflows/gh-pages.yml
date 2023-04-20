@@ -81,7 +81,7 @@ jobs:
           
           <ul>
             <li><a href="master/">Master version</a></li>
-            <li><a href=${GITHUB_REF}>Prova version</a></li>
+            <li><a href=${{GITHUB_REF}}>Prova version</a></li>
           </ul>
           </body>
           </html>' > html/index.html
