@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - master                            # default branch
+      - prova
 
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'         # semantic versions
