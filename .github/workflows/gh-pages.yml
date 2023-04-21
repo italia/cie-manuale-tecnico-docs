@@ -73,11 +73,16 @@ jobs:
       - run: rm -rf master/docs/.git
 
       # Runs a single command using the runners shell
-      - name: Run a script
+      - name: Build Master
         run: |-
           pip install -r requirements.txt && sphinx-build -b html -d html/master/doctrees . html/master
+
+      - name: Run script
+        env:
+          PR_NAME: ${GITHUB_HEAD_REF}
+        run: |-
           touch html/.nojekyll
-          echo '
+          echo "
           <html>
           <head>
             <title>CIE eID - Manuale Tecnico</title>
@@ -91,8 +96,7 @@ jobs:
             <li><a href= $PR_NAME >Prova version</a></li>
           </ul>
           </body>
-          </html>' > html/index.html
-
+          </html>" > html/index.html
 
       - name: Deploy to GitHub Pages
         if: success()
