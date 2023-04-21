@@ -5,8 +5,9 @@ name: gh-pages
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  #push:
-  #  branches:
+  push:
+    branches:
+      - '*'
   #    - master                            # default branch
   #    - prova
 
@@ -48,6 +49,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          ref: ${GITHUB_HEAD_REF}
       
       # Checkout the `master` branch
       - uses: actions/checkout@v2
@@ -82,7 +85,7 @@ jobs:
           
           <ul>
             <li><a href="master/">Master version</a></li>
-            <li><a href="$GITHUB_HEAD_REF">Prova version</a></li>
+            <li><a href="${GITHUB_HEAD_REF}">Prova version</a></li>
           </ul>
           </body>
           </html>' > html/index.html
