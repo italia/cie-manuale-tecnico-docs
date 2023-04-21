@@ -88,7 +88,7 @@ jobs:
           
           <ul>
             <li><a href="master/">Master version</a></li>
-            <li><a href=" $PR_NAME ">Prova version</a></li>
+            <li><a href= $PR_NAME >Prova version</a></li>
           </ul>
           </body>
           </html>' > html/index.html
