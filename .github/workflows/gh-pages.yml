@@ -5,9 +5,9 @@ name: gh-pages
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches:
-      - '*'
+  #push:
+  #  branches:
+  #    - '*'
   #    - master                            # default branch
   #    - prova
 
@@ -98,11 +98,22 @@ jobs:
           </body>
           </html>" > html/index.html
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy PR to GitHub Pages
         if: success()
-        uses: crazy-max/ghaction-github-pages@v2
+        uses: rossjrw/pr-preview-action@v1
         with:
-          target_branch: gh-pages
-          build_dir: html
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+          source-dir: html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      #- name: Deploy to GitHub Pages
+      #  if: success()
+      #  uses: crazy-max/ghaction-github-pages@v2
+      #  with:
+      #    target_branch: gh-pages
+      #    build_dir: html
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
