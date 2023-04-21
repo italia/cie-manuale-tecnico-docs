@@ -5,13 +5,13 @@ name: gh-pages
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches:
-      - master                            # default branch
-      - prova
+  #push:
+  #  branches:
+  #    - master                            # default branch
+  #    - prova
 
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'         # semantic versions
+  #  tags:
+  #    - 'v[0-9]+.[0-9]+.[0-9]+'         # semantic versions
 
   pull_request_target:                  # pull request build
     branches:
@@ -28,7 +28,7 @@ env:
   PYTHON: 3.9
   PKGS_FILE: docs/requirements.txt      # .txt (`pip`) or .yml (`conda`) file
   BRANCH_REF: ${GITHUB_REF}
-  BUILD_CMD: pip install -r requirements.txt && sphinx-build -b html -d html/${CI_REF}/doctrees . html/${CI_REF}
+  BUILD_CMD: pip install -r requirements.txt && sphinx-build -b html -d html/${GITHUB_HEAD_REF}/doctrees . html/${GITHUB_HEAD_REF}
   PR_NAME: ${github.event.pull_request.labels.*.name}
   #BUILD_CMD_PR: pip install -r requirements.txt && sphinx-build -b html -d html/${CI_PR_ID}/doctrees . html/${CI_PR_ID} 
   DEPLOY_BRANCH: gh-pages               #  target branch to deploy _build/html
@@ -82,7 +82,7 @@ jobs:
           
           <ul>
             <li><a href="master/">Master version</a></li>
-            <li><a href=$CI_REF>Prova version</a></li>
+            <li><a href="$GITHUB_HEAD_REF">Prova version</a></li>
           </ul>
           </body>
           </html>' > html/index.html
