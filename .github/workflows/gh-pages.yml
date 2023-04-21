@@ -33,7 +33,8 @@ env:
   PR_NAME: ${github.event.pull_request.labels.*.name}
   #BUILD_CMD_PR: pip install -r requirements.txt && sphinx-build -b html -d html/${CI_PR_ID}/doctrees . html/${CI_PR_ID} 
   DEPLOY_BRANCH: gh-pages               #  target branch to deploy _build/html
-  ROOT_REDIRECT: latest     
+  ROOT_REDIRECT: latest  
+  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -87,7 +88,7 @@ jobs:
           
           <ul>
             <li><a href="master/">Master version</a></li>
-            <li><a href="${{GITHUB_HEAD_REF}}">Prova version</a></li>
+            <li><a href=" $PR_NAME ">Prova version</a></li>
           </ul>
           </body>
           </html>' > html/index.html
