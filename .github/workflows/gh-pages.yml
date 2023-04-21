@@ -28,9 +28,9 @@ env:
   PYTHON: 3.9
   PKGS_FILE: docs/requirements.txt      # .txt (`pip`) or .yml (`conda`) file
   BRANCH_REF: ${GITHUB_REF}
-  BUILD_CMD: pip install -r requirements.txt && sphinx-build -b html -d html/${GITHUB_REF}/doctrees . html/${GITHUB_REF}
+  BUILD_CMD: pip install -r requirements.txt && sphinx-build -b html -d html/${CI_REF}/doctrees . html/${CI_REF}
   PR_NAME: ${github.event.pull_request.labels.*.name}
-  #BUILD_CMD_PR: pip install -r requirements.txt && sphinx-build -b html -d html/${{PR_NAME}}/doctrees . html/${{PR_NAME}} 
+  #BUILD_CMD_PR: pip install -r requirements.txt && sphinx-build -b html -d html/${CI_PR_ID}/doctrees . html/${CI_PR_ID} 
   DEPLOY_BRANCH: gh-pages               #  target branch to deploy _build/html
   ROOT_REDIRECT: latest     
 
@@ -39,7 +39,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     
-    if: github.event_name == 'push'
+    #if: github.event_name == 'push'
     
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -82,7 +82,7 @@ jobs:
           
           <ul>
             <li><a href="master/">Master version</a></li>
-            <li><a href=${{ENV.BRANCH_REF}}>Prova version</a></li>
+            <li><a href=$CI_REF>Prova version</a></li>
           </ul>
           </body>
           </html>' > html/index.html
