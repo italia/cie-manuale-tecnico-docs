@@ -54,32 +54,30 @@ jobs:
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
        # Runs a single command using the runners shell
-      - name: Build ref
-        run: |-
-          ${{ env.BUILD_CMD }}
+      #- name: Build ref
+      #  run: |-
+      #    ${{ env.BUILD_CMD }}
       
       # Checkout the `master` branch
-      - uses: actions/checkout@v2
-        with:
-          ref: master
-          # Put the checked out files inside the `big-island-buses/heleon` folder
-          path: master/docs
-          clean: false
-      # Delete the .git folder from `big-island-buses/heleon`
-      # This turns the files into a plain folder instead of a git repository
-      - run: rm -rf master/docs/.git
+      #- uses: actions/checkout@v2
+      #  with:
+      #    ref: master
+      #    # Put the checked out files inside the `big-island-buses/heleon` folder
+      #    path: master/docs
+      #    clean: false
+      ## Delete the .git folder from `big-island-buses/heleon`
+      ## This turns the files into a plain folder instead of a git repository
+      #- run: rm -rf master/docs/.git
 
       # Runs a single command using the runners shell
-      - name: Build Master
+      - name: Build 
         run: |-
-          pip install -r requirements.txt && sphinx-build -b html -d html/master/doctrees . html/master
+          pip install -r requirements.txt && sphinx-build -b html -d html/doc/doctrees . html/doc
 
       - name: Run script
-        env:
-          PR_NAME: ${GITHUB_HEAD_REF}
         run: |-
           touch html/.nojekyll
           echo "
@@ -92,8 +90,7 @@ jobs:
           <h1>CIE eID - Manuale Tecnico</h1>
           
           <ul>
-            <li><a href="master/">Master version</a></li>
-            <li><a href= $PR_NAME >Prova version</a></li>
+            <li><a href="doc/">Master version</a></li>
           </ul>
           </body>
           </html>" > html/index.html
