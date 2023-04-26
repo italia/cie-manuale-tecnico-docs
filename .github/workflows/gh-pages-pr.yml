@@ -102,9 +102,15 @@ jobs:
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
-          source-dir: html
+          source-dir: ./html/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - uses: rossjrw/pr-preview-action@v1
+        if: github.event.action == "closed" && !github.event.pull_request.merged
+        with:
+          source-dir: ./html/
+          action: remove
       
       #- name: Deploy to GitHub Pages
       #  if: success()
