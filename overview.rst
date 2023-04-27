@@ -2,6 +2,9 @@
 Soluzione eID basata sulla CIE 
 ==============================
 
+
+CIao..
+
 Lo schema di autenticazione Entra con CIE é di tipo Single Sign-On (SSO) federato e dunque prevede l'introduzione di un gestore dell'identitá dell'utente, un Identity Provider (IdP), al quale i fornitori di servizi online, Service Provider (SP), richiedono, previa federazione, la verifica dell'identitá dell'utente. 
 In particolare lo schema Entra con CIE prevede l'istituzione di un IdP unico, il Ministero dell'Interno, che in qualitá di ente responsabile dell'emissione della CIE, ne cura anche gli aspetti legati all'impiego documento come strumento di identitá digitale. Di seguito viene mostrato uno schema logico della soluzione eID basata sulla CIE. 
 
