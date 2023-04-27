@@ -15,18 +15,7 @@ on:
   #    - 'v[0-9]+.[0-9]+.[0-9]+'         # semantic versions
 
 
-  workflow_dispatch:                    # manual trigger
-
-env:
-  PYTHON: 3.9
-  PKGS_FILE: docs/requirements.txt      # .txt (`pip`) or .yml (`conda`) file
-  BRANCH_REF: ${GITHUB_REF}
-  BUILD_CMD: pip install -r requirements.txt && sphinx-build -b html -d html/${GITHUB_HEAD_REF}/doctrees . html/${GITHUB_HEAD_REF}
-  PR_NAME: ${github.event.pull_request.labels.*.name}
-  #BUILD_CMD_PR: pip install -r requirements.txt && sphinx-build -b html -d html/${CI_PR_ID}/doctrees . html/${CI_PR_ID} 
-  DEPLOY_BRANCH: gh-pages               #  target branch to deploy _build/html
-  ROOT_REDIRECT: latest  
-  
+  workflow_dispatch:                    # manual trigger  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -40,52 +29,22 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4.6.0
         with:
           python-version: '3.8' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          clean: true
       
-       # Runs a single command using the runners shell
-      #- name: Build ref
-      #  run: |-
-      #    ${{ env.BUILD_CMD }}
-      
-      # Checkout the `master` branch
-      #- uses: actions/checkout@v2
-      #  with:
-      #    ref: master
-      #    # Put the checked out files inside the `big-island-buses/heleon` folder
-      #    path: master/docs
-      #    clean: false
-      ## Delete the .git folder from `big-island-buses/heleon`
-      ## This turns the files into a plain folder instead of a git repository
-      #- run: rm -rf master/docs/.git
 
       # Runs a single command using the runners shell
       - name: Build 
         run: |-
-          pip install -r requirements.txt && sphinx-build -b html -d html/doc/doctrees . html/doc
-
-      - name: Run script
-        run: |-
+          pip install -r requirements.txt && sphinx-build -b html -d html/doctrees . html/
           touch html/.nojekyll
-          echo "
-          <html>
-          <head>
-            <title>CIE eID - Manuale Tecnico</title>
-            <meta name="viewport" content="initial-scale=1.0">
-          </head>
-          <body>
-          <h1>CIE eID - Manuale Tecnico</h1>
-          
-          <ul>
-            <li><a href="doc/">Master version</a></li>
-          </ul>
-          </body>
-          </html>" > html/index.html
 
       - name: Deploy to GitHub Pages
         if: success()
@@ -97,11 +56,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-      #- name: Deploy to GitHub Pages
-      #  if: success()
-      #  uses: crazy-max/ghaction-github-pages@v2
-      #  with:
-      #    target_branch: gh-pages
-      #    build_dir: html
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
