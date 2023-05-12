@@ -1,16 +1,15 @@
 ==============================
-Soluzione eID basata sulla CIE 
+Soluzione eID basata sulla CIE
 ==============================
 
 Lo schema di autenticazione “\ *Entra con CIE*\ ” segue il modello
-dell’identità federata e dunque prevede l’introduzione di un gestore
-dell’identità dell’utente, un Identity Provider (IdP), al quale i
+dell’identità federata e dunque prevede l’introduzione di un Identity Provider (IdP), al quale i
 fornitori di servizi online, Service Provider (SP), richiedono, previa
 federazione, la verifica dell’identitá dell’utente.
 
-In particolare, prevede l’istituzione di un IdP unico, il Ministero
+In particolare, lo schema prevede l’istituzione di un IdP unico, il Ministero
 dell’Interno, che in qualità di ente responsabile dell’emissione della
-CIE, ne cura anche gli aspetti legati all’impiego documento e delle
+CIE, ne cura anche gli aspetti legati all’impiego del documento e delle
 credenziali di livello basso e significativo ad esso connesso, come
 strumento di identità digitale. Di seguito viene mostrato uno schema
 logico della soluzione eID basata sulla CIE.
@@ -21,7 +20,7 @@ logico della soluzione eID basata sulla CIE.
     :name: schema-cie
     :align: center
 
-    Schema di autenticazione. Entra con CIE 
+
 
 L’accesso mediante la CIE ai servizi erogati in rete dalle PP.AA. è reso
 possibile attraverso il CieID Server, sito presso il Ministero
@@ -36,7 +35,7 @@ Ministero dell’Interno. Esso svolge le seguenti funzioni:
 
 -  Effettua l’identificazione informatica dell’utente mediante
    l’esecuzione della fase di challenge secondo il livello di sicurezza
-   richiesto dal SP/scelto dall’utente;
+   richiesto dal SP ovvero scelto dall’utente;
 
 -  Nel caso di accesso mediante livello di sicurezza “alto”, verifica la
    validità del certificato a bordo della CIE cooperando con la CA
@@ -46,17 +45,17 @@ Ministero dell’Interno. Esso svolge le seguenti funzioni:
    di servizio chiedendo all’utente il consenso alla trasmissione di
    essi;
 
-Invia una asserzione di autenticazione sigillata con sigillo
-riconducibile al Ministero dell’Interno all’erogatore del servizio; tale
-asserzione costituisce prova di avvenuto riconoscimento dell’utente da
-parte di CieID Server e del Ministero stesso.
+-  Invia una asserzione di autenticazione sigillata con sigillo
+   riconducibile al Ministero dell’Interno all’erogatore del servizio; tale
+   asserzione costituisce prova di avvenuto riconoscimento dell’utente da
+   parte di CieID Server e del Ministero stesso.
 
 .. note::
    L’interazione con l’utente da parte della componente CieID Server, puó avvenire secondo diverse modalitá:
 
-   -  **Modalitá «desktop»:** l’utente si autentica mediante un browser installato sul proprio computer. Nel caso di accesso di livello 3, utilizza la CIE mediante un lettore contactless collegato al computer
+   -  **Modalitá «desktop»:** l’utente si autentica mediante un browser installato sul proprio computer. Nel caso di accesso di livello 3, utilizza la CIE mediante un lettore RF collegato al computer
 
-   -  **Modalitá «mobile»**: l’utente si autentica al servizio tramite un browser installato su un dispositivo mobile (smartphone o tablet) dotato dell’app CieID. Nel caso di accesso di livello 3, il dispositivo mobile deve essere necessariamente dotato di interfaccia NFC. In tale circostanza la fase di autenticazione si completa avvicinando la CIE al proprio dispositivo;
+   -  **Modalitá «smartphone»**: l’utente si autentica al servizio tramite un browser installato su un dispositivo mobile (smartphone o tablet) dotato dell’app CieID. Nel caso di accesso di livello 3, il dispositivo mobile deve essere necessariamente dotato di interfaccia NFC. In tale circostanza la fase di autenticazione si completa avvicinando la CIE al proprio dispositivo;
 
    -  **Modalitá «desktop + smartphone»**: l’utente si autentica al servizio tramite un browser installato sul proprio computer e, nel caso di accesso di livello 2 o 3 completa l’autenticazione mediante l’app CieID eventualmente avvicinando la CIE al proprio dispositivo mobile dotato di interfaccia NFC.
 
@@ -70,11 +69,10 @@ distinte:
    Provider secondo i passi riportati in precedenza.
 
 Per quanto concerne il primo punto, la richiesta avviene tramite una
-«call to action» realizzata dal Service Provider tramite un apposito
-pulsante «Entra con CIE» e che ha come landing page un endpoint del
-Ministero dell’Interno, il quale innesca il processo di identificazione
-mediante la componente server CieID dell’IdP. Per consentire una espe-
-rienza utente quanto più possibile omogenea presso tutti i service
+«call to action», realizzata dal Service Provider tramite un apposito
+pulsante «Entra con CIE», che ha come landing page un endpoint del
+Ministero dell’Interno, il quale a sua volta innesca il processo di identificazione
+vero e proprio. Per consentire una esperienza utente quanto più possibile omogenea presso tutti i service
 provider che integrano lo schema di identificazione mediante la CIE si
 deve utilizzare il kit disponibile all’indirizzo
 https://github.com/italia/cie-graphics.
@@ -85,11 +83,11 @@ https://github.com/italia/cie-graphics.
     :name: pulsante-entra-con-cie
     :align: center
 
-    Pulsante ufficiale «Entra con CIE»
+
 
 In riferimento al secondo punto, invece, l’autenticazione dell’utente é
 avviata dall’Identity Provider durante la cosiddetta fase di “challenge”
-che richiede l’utilizzo, da parte dell’utente di differenti tipologie di
+che richiede l’utilizzo di differenti tipologie di
 credenziali, secondo il livello di sicurezza di autenticazione richiesto
 dal servizio o dall’utente stesso impostato. Nel dettaglio:
 
@@ -114,8 +112,8 @@ dal servizio o dall’utente stesso impostato. Nel dettaglio:
    possibile scaricare e installare un appposito software denominato
    CieID (Middleware) disponibile per i Sistemi operativi Windows, MacOS
    e Linux all’indirizzo
-   `https://www.cartaidentita.interno.gov.it/ <https://www.cartaidentita.interno.gov.it/software-cie>`__
-   `software-cie <https://www.cartaidentita.interno.gov.it/software-cie>`__,
+   `https://www.cartaidentita.interno.gov.it/pa-e-imprese/documentazione-middleware-cie/ <https://www.cartaidentita.interno.gov.it/pa-e-imprese/documentazione-middleware-cie>`__
+   ,
    che consente l’integrazione della CIE all’interno del sistema
    operativo ospite quale token crittografico esterno. Nel caso di
    autenticazione effettuata tramite un dispositivo mobile, é possibile
@@ -137,22 +135,22 @@ dello schema «Entra con CIE» all’interno dei servizi erogati dai SP.
 I diagrammi seguenti illustrano i meccanismi di funzionamento dello
 schema “Entra con CIE” nei vari scenari di utilizzo, secondo il
 protocollo impiegato e il livello di sicurezza richiesto.
-  
+
 .. [#]
    Non è consentito l’accesso da terminali dotati di sistema operativo
    iOS precedenti alla release 13 a causa dell’impossibilità di impiego
    del lettore NFC per contesti di utilizzo non approvati da Apple.
-   
+
 .. _sec-meccanismi:
 
 Meccanismi di funzionamento
 ---------------------------
 
 
-Accesso di livello 1 
+Accesso di livello 1
 ~~~~~~~~~~~~~~~~~~~~
 
-**COMPUTER**
+**DESKTOP**
 
 .. figure:: media/image3.png
     :alt: Accesso di livello 1 da computer
@@ -170,10 +168,10 @@ Accesso di livello 1
 
     Accesso di livello 1 da smartphone
 
-Accesso di livello 2 
+Accesso di livello 2
 ~~~~~~~~~~~~~~~~~~~~
 
-**COMPUTER VIA OTP (SMS)**
+**DESKTOP VIA OTP (SMS)**
 
 .. figure:: media/image5.png
     :alt: Accesso di livello2 da computer
@@ -182,7 +180,7 @@ Accesso di livello 2
 
     Accesso di livello 2 via OTP su SMS, da computer
 
-**COMPUTER VIA OTP (PUSH)**
+**DESKTOP VIA OTP (PUSH)**
 
 .. figure:: media/image6.png
     :alt: Accesso di livello 2 da computer push
@@ -191,7 +189,7 @@ Accesso di livello 2
 
     Accesso di livello 2 da computer mediante notifiche Push
 
-**COMPUTER VIA QR CODE e CieID**
+**DESKTOP VIA QR CODE e CieID**
 
 .. figure:: media/image7.png
     :alt: Accesso di livello 2 da computer QR
@@ -209,10 +207,10 @@ Accesso di livello 2
 
     Accesso di livello 2 da smartphone
 
-Accesso di livello 3 
+Accesso di livello 3
 ~~~~~~~~~~~~~~~~~~~~
 
-**COMPUTER**
+**DESKTOP**
 
 .. figure:: media/image9.png
     :alt: Accesso di livello 3 da computer RF CIE
@@ -265,11 +263,10 @@ dispositivi Android e per dispositivi iOS.
     App CieID iOS - Link per il download
 
 Dell’app è disponibile anche una versione per i test in ambiente di
-pre-produzione, propedeutici all’attivazione di Entra con CIE
-l’autenticazione verso i servizi digitali erogati da un SP in corso di
-subentro sullo schema.
+pre-produzione, propedeutici all’attivazione di Entra con CIE in esercizio.
 
-.. note:: 
+
+.. note::
 
 	Ai fini di sviluppo, per effettuare i test in ambiente di
 	preproduzione e di produzione disponibili presso il Ministero
@@ -277,8 +274,7 @@ subentro sullo schema.
 	computer, secondo lo scenario «desktop» appena presentato. Per i test in
 	modalitá «mobile» o «computer + smartphone», non é possibile, invece,
 	usare l’App CieID «ufficiale» in ambiente di pre-produzione ma é
-	necessario installare l’App CieID di test \ `8 <#_heading=h.26in1rg>`__
-	disponibile al seguente
+	necessario installare l’App CieID di test disponibile al seguente
 	`link <https://install.appcenter.ms/users/ipzsapp/apps/cieid-preproduzione/distribution_groups/public%20link>`__\  [#]_
 
 .. figure:: media/image14.png
@@ -292,10 +288,9 @@ subentro sullo schema.
 Per effettuare i test in pre-produzione tramite l’App CieID di test o
 mediante il software CieID e agevolare gli sviluppi applicativi, é
 possibile richiedere ed utilizzare, in caso di indisponibilitá di una
-CIE «autentica», carte di test che é possibile richiedere in fase di
-onboarding tramite il `portale di federazione erogatori di
+CIE «autentica», carte di test tramite il `portale di federazione erogatori di
 servizi <https://federazione.servizicie.interno.gov.it/>`__\  [#]_
-cfr. il `Manuale operativo per i fornitori
+(cfr. il `Manuale operativo per i fornitori
 di <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__
 `servizi pubblici e
 privati <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__\  [#]_
@@ -321,16 +316,3 @@ https://github.com/italia/cieid-ios-sdk, sono disponibili gratuitamente
 le SDK Android e iOS che mettono a disposizione esempi di codice
 sorgente per l’integrazione dei due flussi sopra riportati nonché una
 libreria software per l’integrazione del flusso integrato con esempi.
-
-.. [#]
-   L’App CieID di test é attualmente disponibile solo per dispositivi
-   Android.
-   https://install.appcenter.ms/users/ipzsapp/apps/cieid-preproduzione/distribution_groups/public%20link
-
-.. [#]
-   https://federazione.servizicie.interno.gov.it
-
-.. [#]
-   https://docs.italia.it/italia/cie/cie-manuale-operativo-docs
-
-   
