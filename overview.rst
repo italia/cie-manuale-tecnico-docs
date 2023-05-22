@@ -41,12 +41,10 @@ Ministero dell'Interno. Esso svolge le seguenti funzioni:
    validità del certificato a bordo della CIE cooperando con la CA
    Autenticazione;
 
--  Mostra gli attributi qualificati che saranno trasmessi all'erogatore
-   di servizio chiedendo all'utente il consenso alla trasmissione di
-   essi;
+-  Invia gli attributi qualificati all'erogatore
+   di servizio previo consenso esplicito da parte dell'utente;
 
--  Invia una asserzione di autenticazione sigillata con sigillo
-   riconducibile al Ministero dell'Interno all'erogatore del servizio; tale
+-  Invia all'erogatore di servizio una asserzione di autenticazione firmata dal Ministero dell'Interno; tale
    asserzione costituisce prova di avvenuto riconoscimento dell'utente da
    parte di CieID Server e del Ministero stesso.
 
@@ -74,7 +72,7 @@ pulsante «Entra con CIE», che ha come landing page un endpoint del
 Ministero dell'Interno, il quale a sua volta innesca il processo di identificazione
 vero e proprio. Per consentire una esperienza utente quanto più possibile omogenea presso tutti i service
 provider che integrano lo schema di identificazione mediante la CIE si
-deve utilizzare il kit disponibile all'indirizzo
+DEVE utilizzare il kit disponibile all'indirizzo
 https://github.com/italia/cie-graphics.
 
 .. figure:: media/image2.jpg

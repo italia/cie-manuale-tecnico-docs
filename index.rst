@@ -20,15 +20,14 @@ identificazione «Entra con CIE» realizza un sistema di autenticazione
 federato per l'identificazione dei cittadini presso i soggetti pubblici
 e privati che erogano servizi digitali in rete.
 
-Si basa sia sul protocollo SAML v2 (Security Assertion Markup Language)
-con profilo «Web Browser SSO» (`SAML V2.0 Technical
-Overview <http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html>`__\ `1 <#_heading=h.3znysh7>`__)
+Si basa sia sul protocollo `SAML v2 <http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html>`__ (Security Assertion Markup Language)
+con profilo «Web Browser SSO» (si veda `Regole Tecniche CIE id SAML <https://docs.italia.it/italia/cie/cie-eid-saml-docs/it/master/index.html>`__)
 dal quale eredita gran parte dei requisiti tecnici, sia sul protocollo
-OpenID Connect (`OIDC <https://docs.italia.it/italia/spid/spid-cie-oidc-docs/it/versione-corrente/index.html>`__\), quest'ultimo di più recente adozione. I soggetti
+OpenID Connect (si veda `Regole Tecniche SPID/CIE OpenID Connect <https://docs.italia.it/italia/spid/spid-cie-oidc-docs/it/versione-corrente/index.html>`__\), quest'ultimo di più recente adozione. I soggetti
 pubblici e privati che aderiscono allo schema possono scegliere uno o
 l'altro protocollo secondo le loro necessità.
 
-Come *SPID,* “Entra con CIE” offre diversi meccanismi di accesso secondo
+Lo schema di autenticazione “Entra con CIE” offre diversi meccanismi di accesso secondo
 il livello di sicurezza richiesto dal particolare servizio a cui
 l'utente accede ed in particolare:
 
@@ -44,7 +43,7 @@ l'utente accede ed in particolare:
    dispositivo;
 
 3) Un livello di accesso cosiddetto “\ *alto*\ ” (livello 3), che
-   prevede l'impiego del processore a bordo della CIE e del certificato
+   prevede l'utilizzo della CIE e del certificato
    digitale di autenticazione a bordo di esso, congiuntamente con il PIN
    della carta.
 
@@ -60,8 +59,6 @@ casistiche, rimandando poi alle specifiche tecniche finalizzate
 all'integrazione per l'accesso ai servizi in rete erogati da PP.AA. e
 privati, secondo i vari protocolli.
 
-:sup:`1`
-http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html
 
 
 .. toctree::
