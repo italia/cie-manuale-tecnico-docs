@@ -120,11 +120,8 @@ dal servizio. Nel dettaglio:
    (`Android <https://play.google.com/store/apps/details?id=it.ipzs.cieid>`__
    o `iOS <https://apps.apple.com/it/app/cieid/id1504644677>`__).
 
-Allo stato dell'arte questa modalità è fruibile mediante smartphone
-dotati di tecnologia NFC e sistema operativo Android 6 o superiore,
-mediante il browser “Chrome”, e iPhone 7 o superiori con sistemi
-operativi iOS 13 o superiore [#]_, mediante browser Safari. Tutte le
-componenti software, sia lato server IdP e sia client (Middleware e App
+Allo stato dell'arte questa modalitá è fruibile mediante smartphone dotati di sistema operativo Android 6 o superiore, utilizzando il browser “Chrome”, e iPhone 7 o superiori dotati di sistemi operativi iOS 13 o superiori [#]_ , utilizzando browser Safari. In caso di utilizzo di autenticazione mediante L3 da smartphone è necessario possedere un terminale dotato di lettore NFC. Tutte le componenti software, sia lato server IdP e sia client (Middleware e App CieID), sono sviluppate e gestite dal Poligrafico che cura anche le attività di supporto e assistenza tecnica al Service Provider nell'utilizzo di tali strumenti e durante l'intero iter di integrazione dello schema "Entra con CIE" all'interno dei servizi erogati dai SP.
+Tutte le componenti software, sia lato server IdP e sia client (Middleware e App
 CieID), sono sviluppate e gestite dal Poligrafico che cura anche le
 attività di supporto e assistenza tecnica al Service Provider
 nell'utilizzo di tali strumenti e durante l'intero iter di integrazione
@@ -148,18 +145,18 @@ Meccanismi di funzionamento
 Accesso di livello 1
 ~~~~~~~~~~~~~~~~~~~~
 
-**DESKTOP**
+.. **DESKTOP**
 
 .. figure:: media/image3.png
     :alt: Accesso di livello 1 da computer
     :name: accesso-livello1-pc
     :align: center
 
-    Accesso di livello 1 da computer
+    Accesso di livello 1 da computer e da smartphone
 
-**SMARTPHONE**
+.. **SMARTPHONE**
 
-.. figure:: media/image4.jpg
+.. .. figure:: media/image4.jpg
     :alt: Accesso di livello 1 da smartphone
     :name: accesso-livello1-sm
     :align: center
@@ -287,10 +284,10 @@ Per effettuare i test in pre-produzione tramite l'App CieID di test o
 mediante il software CieID e agevolare gli sviluppi applicativi, é
 possibile richiedere ed utilizzare, in caso di indisponibilitá di una
 CIE «autentica», carte di test tramite il `portale di federazione erogatori di
-servizi <https://federazione.servizicie.interno.gov.it/>`__   
+servizi <https://federazione.servizicie.interno.gov.it/>`__
 (cfr. il `Manuale operativo per i fornitori
 di servizi pubblici e
-privati <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__   
+privati <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__
 per ulteriori dettagli sul processo di onboarding).
 
 Per i Service Provider interessati a fornire al cittadino i propri
