@@ -24,11 +24,11 @@ logico della soluzione eID basata sulla CIE.
 
 L'accesso mediante la CIE ai servizi erogati in rete dalle PP.AA. è reso
 possibile attraverso il CieID Server, sito presso il Ministero
-dell'Interno e fruibile attraverso Internet e/o SPC. Tale componente
+dell'Interno. Tale componente
 server, che si configura tanto come un server SAML 2.0 che come un
 OpenID Provider (OP), è realizzato e manutenuto dal Poligrafico e Zecca
 dello Stato S.p.A. (PZS) che riveste il ruolo di partner tecnologico del
-Ministero dell'Interno. Esso svolge le seguenti funzioni:
+Ministero dell'Interno. Il CieID Server svolge le seguenti funzioni:
 
 -  Accetta richieste di autenticazione SAML o OIDC a servizi digitali
    erogati da enti federati ed inviate attraverso il protocollo HTTPS;
@@ -85,9 +85,9 @@ https://github.com/italia/cie-graphics.
 
 In riferimento al secondo punto, invece, l'autenticazione dell'utente é
 avviata dall'Identity Provider durante la cosiddetta fase di “challenge”
-che richiede l'utilizzo di differenti tipologie di
+che, se opportunamente abilitati dall'utente, utilizza differenti tipologie di
 credenziali, secondo il livello di sicurezza di autenticazione richiesto
-dal servizio o dall'utente stesso impostato. Nel dettaglio:
+dal servizio. Nel dettaglio:
 
 1. username/password: credenziali attivate dall'utente titolare della
    CIE da utilizzare in caso di accesso con livello di sicurezza
@@ -287,11 +287,10 @@ Per effettuare i test in pre-produzione tramite l'App CieID di test o
 mediante il software CieID e agevolare gli sviluppi applicativi, é
 possibile richiedere ed utilizzare, in caso di indisponibilitá di una
 CIE «autentica», carte di test tramite il `portale di federazione erogatori di
-servizi <https://federazione.servizicie.interno.gov.it/>`__\  
+servizi <https://federazione.servizicie.interno.gov.it/>`__   
 (cfr. il `Manuale operativo per i fornitori
-di <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__
-`servizi pubblici e
-privati <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__\  
+di servizi pubblici e
+privati <https://docs.italia.it/italia/cie/cie-manuale-operativo-docs>`__   
 per ulteriori dettagli sul processo di onboarding).
 
 Per i Service Provider interessati a fornire al cittadino i propri
@@ -304,7 +303,7 @@ integrazione:
    con la CIE.
 
 -  Flusso integrato: il processo di autenticazione viene effettuato
-   direttamente in maniera nativa all'interno del- l'App del Service
+   direttamente in maniera nativa all'interno dell'App del Service
    Provider, il quale integra le funzionalità di autenticazione dello
    schema “\ *Entra con CIE*\ ” attraverso una versione SDK (Software
    Development Kit) di CieID, rilasciata e gestita dal Poligrafico.
