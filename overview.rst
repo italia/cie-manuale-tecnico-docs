@@ -93,13 +93,12 @@ dal servizio. Nel dettaglio:
    CIE da utilizzare in caso di accesso con livello di sicurezza
    “\ *basso*\ ” (livello 1);
 
-2. secondo fattore di autenticazione: costituito da un codice OTP
-   ricevuto mediante SMS o notifica PUSH sull'app CieID oppure
-   dall'insieme di un QR Code opportunamente generato dall'IdP e
-   dell'app CieID. L'OTP viene utilizzato in combinazione con le
-   credenziali username e password mentre l'app CieID e il QRCode in
-   autonomia, per realizzare un accesso con livello di sicurezza
-   “\ *significativo”* (livello 2);
+2. secondo fattore di autenticazione: per realizzare un accesso con livello di sicurezza
+   “\ *significativo”* (livello 2) c'è l'autenticazione a due fattori, che consiste 
+   nell'immettere le credenziali username e password più un codice OTP ricevuto via
+   SMS; in alternativa all'OTP si può decidere di ricevere una notifica PUSH sull'app
+   CieID (in questa modalità l'accesso può essere effettuato inquadrando con 
+   l'app CieID un QR code opportunamente generato dall'IDP al momento del login);
 
 3. la lettura della CIE e in particolare l'invio del certificato
    digitale X.509 di autenticazione presente nel chip del documento e
