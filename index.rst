@@ -1,3 +1,4 @@
+
 =============================================================
 Manuale tecnico per i fornitori di Servizi Pubblici e Privati
 =============================================================
@@ -7,10 +8,57 @@ Manuale tecnico per i fornitori di Servizi Pubblici e Privati
    \makeatletter\@openrightfalse
 	\chapter{Introduzione}
 
-La Carta di Identità Elettronica (CIE), rilasciata dallo Stato italiano, grazie alla presenza di un chip a radiofrequenze nel quale sono contenuti i dati personali e biometrici del titolare e un certificato digitale di autenticazione, estende il tradizionale concetto di identità fisica, configurandosi come strumento di identità digitale che soddisfa i requisiti massimi di sicurezza. 
-Interoperabile anche in ambito europeo, lo schema di identificazione "Entra con CIE",  in analogia a quanto previsto da SPID, realizza un sistema di autenticazione federato per l'identificazione dei cittadini presso i soggetti pubblici e privati che aderiscono allo schema. 
-Si basa sul protocollo SAML v2 (Security Assertion Markup Language) per il profilo "Web Browser SSO" (`SAML V2.0 Technical Overview <http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html>`__) dal quale eredita gran parte dei requisiti tecnici.
-Lo scopo del presente documento è quello di definire le specifiche tecniche per l'integrazione di Entra con CIE come schema di autenticazione per l'accesso ai servizi in rete erogati da PP.AA. e privati.
+La Carta di Identità Elettronica (CIE), rilasciata dal Ministero
+dell'Interno, grazie alla presenza di un chip a radiofrequenze nel quale
+sono contenuti i dati personali e biometrici del titolare e un
+certificato digitale di autenticazione, estende il tradizionale concetto
+di identità fisica e si configura come uno strumento di identità
+digitale per l'accesso ai servizi in rete andando a costituire il
+principale cardine dello schema di identificazione digitale “Entra con
+CIE”. Interoperabile anche in ambito europeo, lo schema di
+identificazione «Entra con CIE» realizza un sistema di autenticazione
+federato per l'identificazione dei cittadini presso i soggetti pubblici
+e privati che erogano servizi digitali in rete.
+
+Si basa sia sul protocollo `SAML v2 <http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html>`__ (Security Assertion Markup Language)
+con profilo «Web Browser SSO» (si veda `Regole Tecniche CIE id SAML <https://docs.italia.it/italia/cie/cie-eid-saml-docs/it/master/index.html>`__)
+dal quale eredita gran parte dei requisiti tecnici, sia sul protocollo
+OpenID Connect (si veda `Regole Tecniche SPID/CIE OpenID Connect <https://docs.italia.it/italia/spid/spid-cie-oidc-docs/it/versione-corrente/index.html>`__\), quest'ultimo di più recente adozione. I soggetti
+pubblici e privati che aderiscono allo schema possono scegliere uno o
+l'altro protocollo secondo le loro necessità.
+
+Lo schema di autenticazione “Entra con CIE” offre diversi meccanismi di accesso secondo
+il livello di sicurezza richiesto dal particolare servizio a cui
+l'utente accede ed in particolare:
+
+1) Un livello di accesso cosiddetto “\ *basso*\ ” (livello 1), che
+   prevede l'impiego di credenziali username/password attivabili dal
+   titolare di CIE mediante l'area riservata del portale
+   `www.cartaidentita.it <http://www.cartaidentita.it>`__, previa
+   certificazione di indirizzi di contatto (e-mail e cellulare);
+
+2) Un livello di accesso cosiddetto “\ *significativo*\ ” (livello 2),
+   che prevede l'impiego di un secondo fattore di autenticazione o di un
+   meccanismo di autenticazione che certifichi il possesso di un
+   dispositivo;
+
+3) Un livello di accesso cosiddetto “\ *alto*\ ” (livello 3), che
+   prevede l'utilizzo della CIE e del certificato
+   digitale di autenticazione a bordo di esso, congiuntamente con il PIN
+   della carta.
+
+In ultimo, “Entra con CIE” è utilizzabile tanto da una postazione di
+tipo “Desktop” attraverso il browser e, all'occorrenza, un lettore di
+smart card a radio frequenza (solo livello 3), quanto da uno smartphone
+in mobilità, eventualmente combinando le due modalità di accesso, come
+meglio spiegato nel corso del presente documento.
+
+Lo scopo del presente documento è appunto quello di descrivere i
+principi di funzionamento dello schema “Entra con CIE” nelle varie
+casistiche, rimandando poi alle specifiche tecniche finalizzate
+all'integrazione per l'accesso ai servizi in rete erogati da PP.AA. e
+privati, secondo i vari protocolli.
+
 
 
 .. toctree::
@@ -19,14 +67,6 @@ Lo scopo del presente documento è quello di definire le specifiche tecniche per
    :numbered:
 
    overview.rst
-   federazione.rst
-   protocolli.rst
-   binding.rst
-   ciespid.rst
    cieIDSDK.rst
-   testing.rst   
-   tracciature.rst
-   assistenza.rst
-   pki.rst
-   codiciErrore.rst
-
+   saml.rst
+   oidc.rst
