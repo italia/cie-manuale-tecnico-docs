@@ -1,0 +1,11 @@
+document: 
+  name: "Manuale Tecnico per gli erogatori di servizi pubblici e privati"
+  short_name: cie-manuale-tecnico
+  description: "Documento di specifiche tecniche per consentire l'integrazione dello schema di identificazione Entra con CIE per l'accesso ai servizi in rete di PP.AA e Privati."
+  tags: 
+    - Manuale
+    - Specifiche tecniche
+    - Entra con CIE
+    - CIE
+    - Carta di Identità Elettronica
+    - Docs Italia
