@@ -21,7 +21,7 @@ federato per l'identificazione dei cittadini presso i soggetti pubblici
 e privati che erogano servizi digitali in rete.
 
 Si basa sia sul protocollo `SAML v2 <http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html>`__ (Security Assertion Markup Language)
-con profilo «Web Browser SSO» (si veda `Regole Tecniche CIE id SAML <https://docs.italia.it/italia/cie/cie-eid-saml-docs/it/master/index.html>`__)
+con profilo «Web Browser SSO» (si veda `Regole Tecniche CIE id SAML <https://docs.italia.it/italia/cie/cie-eid-saml-docs/it/versione-corrente/index.html>`__)
 dal quale eredita gran parte dei requisiti tecnici, sia sul protocollo
 OpenID Connect (si veda `Regole Tecniche SPID/CIE OpenID Connect <https://docs.italia.it/italia/spid/spid-cie-oidc-docs/it/versione-corrente/index.html>`__\), quest'ultimo di più recente adozione. I soggetti
 pubblici e privati che aderiscono allo schema possono scegliere uno o
