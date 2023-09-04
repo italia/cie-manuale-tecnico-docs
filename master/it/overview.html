@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manuale Tecnico per gli erogatori di servizi pubblici e privati version: latest documentazione | 1. Soluzione eID basata sulla CIE</title>
+  <title>Manuale Tecnico per gli erogatori di servizi pubblici e privati version: latest documentazione | Soluzione eID basata sulla CIE</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css">
@@ -14,7 +14,6 @@
   <!-- Relations -->
   <link rel="index" title="Indice" href="index.html">
   <link rel="top" title="Manuale Tecnico per gli erogatori di servizi pubblici e privati version: latest documentazione" href="index.html">
-  <link rel="prev" title="Manuale tecnico per i fornitori di Servizi Pubblici e Privati" href="index.html">
 
   
   
@@ -574,44 +573,15 @@
       </ul>
       
       <p class="caption" role="heading"><span class="caption-text">Indice dei contenuti</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Soluzione eID basata sulla CIE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#meccanismi-di-funzionamento">1.1. Meccanismi di funzionamento</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#accesso-di-livello-1">1.1.1. Accesso di livello 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accesso-di-livello-2">1.1.2. Accesso di livello 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accesso-di-livello-3">1.1.3. Accesso di livello 3</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#app-cieid-e-sdk-di-integrazione">1.2. APP “CieID” e SDK di integrazione</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cieIDSDK.html">1. SDK App Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saml.html">2. Protocollo di comunicazione SAML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oidc.html">3. Protocollo di comunicazione OIDC</a></li>
 </ul>
 
       
     </div>
 
-    
-    <button data-toggle="collapse" data-target="#figures-index" aria-expanded="true" class="sidebar-btn p-3 sidebar-btn--desktop collapsed" type="button" aria-controls="figures-index">
-      indice delle figure
-      <span class="it-collapse float-right"></span>
-      <span class="it-expand float-right"></span>
-    </button>
-    <div id="figures-index" class="figures-index--menu sidebar-list--wrapper sidebar-accordion-content collapse">
-      <ul>
-<li><a class="reference internal" href="#accesso-livello1-pc">Fig. 1.1 - Accesso di livello 1 da computer e da smartphone</a></li>
-<li><a class="reference internal" href="#accesso-livello2-pc">Fig. 1.2 - Accesso di livello 2 via OTP su SMS, da computer</a></li>
-<li><a class="reference internal" href="#accesso-livello2-pc-push">Fig. 1.3 - Accesso di livello 2 da computer mediante notifiche Push</a></li>
-<li><a class="reference internal" href="#accesso-livello2-qr">Fig. 1.4 - Accesso di livello 2 da computer attraverso scansione QR code</a></li>
-<li><a class="reference internal" href="#accesso-livello2-sm">Fig. 1.5 - Accesso di livello 2 da smartphone</a></li>
-<li><a class="reference internal" href="#accesso-livello3-pccie">Fig. 1.6 - Accesso di livello 3 da Computer con lettore RF e CIE</a></li>
-<li><a class="reference internal" href="#accesso-livello3-sm">Fig. 1.7 - Accesso di livello 3 da smartphone</a></li>
-<li><a class="reference internal" href="#accesso-livello3-pcsm">Fig. 1.8 - Autenticazione di livello 3 mista &quot;computer + smartphone&quot;</a></li>
-<li><a class="reference internal" href="#cie-android">Fig. 1.9 - App CieID Android - Link per il download</a></li>
-<li><a class="reference internal" href="#button-ecc">Fig. 1.10 - App CieID iOS - Link per il download</a></li>
-<li><a class="reference internal" href="#cieid-test">Fig. 1.11 - App CieID di test - Link per il download</a></li>
-</ul>
-
-    </div>
     
 
     
@@ -623,7 +593,7 @@
 <div class="navbar-toggler--wrap navbar-toggler--wrap--bottom p-3">
   <div class="navbar-toggler navbar-toggler--open p-0 border-0 ml-auto">
     <div class="navbar-toggler-bottom__chapter align-middle text-truncate">
-      <span class="it-list mr-2"></span><span class="section-number">1. </span>Soluzione eID basata sulla CIE
+      <span class="it-list mr-2"></span>Soluzione eID basata sulla CIE
     </div>
   </div>
 </div>
@@ -680,37 +650,17 @@
         </ul>
         
         <p class="caption" role="heading"><span class="caption-text">Indice dei contenuti</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Soluzione eID basata sulla CIE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#meccanismi-di-funzionamento">1.1. Meccanismi di funzionamento</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#accesso-di-livello-1">1.1.1. Accesso di livello 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accesso-di-livello-2">1.1.2. Accesso di livello 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accesso-di-livello-3">1.1.3. Accesso di livello 3</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#app-cieid-e-sdk-di-integrazione">1.2. APP “CieID” e SDK di integrazione</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cieIDSDK.html">1. SDK App Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saml.html">2. Protocollo di comunicazione SAML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oidc.html">3. Protocollo di comunicazione OIDC</a></li>
 </ul>
 
         
       </div>
 
       <div id="figures-index-mobile" class="figures-index--menu tab-pane sidebar-list--wrapper fade" role="tabpanel" aria-labelledby="figures-index-mobile-tab">
-        <ul>
-<li><a class="reference internal" href="#accesso-livello1-pc">Fig. 1.1 - Accesso di livello 1 da computer e da smartphone</a></li>
-<li><a class="reference internal" href="#accesso-livello2-pc">Fig. 1.2 - Accesso di livello 2 via OTP su SMS, da computer</a></li>
-<li><a class="reference internal" href="#accesso-livello2-pc-push">Fig. 1.3 - Accesso di livello 2 da computer mediante notifiche Push</a></li>
-<li><a class="reference internal" href="#accesso-livello2-qr">Fig. 1.4 - Accesso di livello 2 da computer attraverso scansione QR code</a></li>
-<li><a class="reference internal" href="#accesso-livello2-sm">Fig. 1.5 - Accesso di livello 2 da smartphone</a></li>
-<li><a class="reference internal" href="#accesso-livello3-pccie">Fig. 1.6 - Accesso di livello 3 da Computer con lettore RF e CIE</a></li>
-<li><a class="reference internal" href="#accesso-livello3-sm">Fig. 1.7 - Accesso di livello 3 da smartphone</a></li>
-<li><a class="reference internal" href="#accesso-livello3-pcsm">Fig. 1.8 - Autenticazione di livello 3 mista &quot;computer + smartphone&quot;</a></li>
-<li><a class="reference internal" href="#cie-android">Fig. 1.9 - App CieID Android - Link per il download</a></li>
-<li><a class="reference internal" href="#button-ecc">Fig. 1.10 - App CieID iOS - Link per il download</a></li>
-<li><a class="reference internal" href="#cieid-test">Fig. 1.11 - App CieID di test - Link per il download</a></li>
-</ul>
-
+        None
       </div>
 
       <div id="table-index-mobile" class="table-index--menu tab-pane sidebar-list--wrapper fade" role="tabpanel" aria-labelledby="table-index-mobile-tab">
@@ -730,13 +680,9 @@
             in consultazione
           </div>-->
           
-            <div class="footer-buttons footer-buttons--prev" role="navigation" aria-label="footer navigation">
-                <a href="index.html" class="" title="Manuale tecnico per i fornitori di Servizi Pubblici e Privati" accesskey="p" rel="prev"> Torna a Manuale tecnico per i fornitori di Servizi Pubblici e Privati</a>
-            </div>
-          
           
   <section id="soluzione-eid-basata-sulla-cie">
-<h1><span class="section-number">1. </span>Soluzione eID basata sulla CIE<a class="headerlink" href="#soluzione-eid-basata-sulla-cie" title="Permalink to this heading">¶</a></h1>
+<h1>Soluzione eID basata sulla CIE<a class="headerlink" href="#soluzione-eid-basata-sulla-cie" title="Permalink to this heading">¶</a></h1>
 <p>Lo schema di autenticazione “<em>Entra con CIE</em>” segue il modello
 dell'identità federata e dunque prevede l'introduzione di un Identity Provider (IdP), al quale i
 fornitori di servizi online, Service Provider (SP), richiedono, previa
@@ -850,87 +796,87 @@ iOS precedenti alla release 13 a causa dell'impossibilità di impiego
 del lettore NFC per contesti di utilizzo non approvati da Apple.</p>
 </aside>
 <section id="meccanismi-di-funzionamento">
-<span id="sec-meccanismi"></span><h2><span class="section-number">1.1. </span>Meccanismi di funzionamento<a class="headerlink" href="#meccanismi-di-funzionamento" title="Permalink to this heading">¶</a></h2>
+<span id="sec-meccanismi"></span><h2>Meccanismi di funzionamento<a class="headerlink" href="#meccanismi-di-funzionamento" title="Permalink to this heading">¶</a></h2>
 <section id="accesso-di-livello-1">
-<h3><span class="section-number">1.1.1. </span>Accesso di livello 1<a class="headerlink" href="#accesso-di-livello-1" title="Permalink to this heading">¶</a></h3>
+<h3>Accesso di livello 1<a class="headerlink" href="#accesso-di-livello-1" title="Permalink to this heading">¶</a></h3>
 <figure class="align-center" id="accesso-livello1-pc">
 <img alt="Accesso di livello 1 da computer" src="_images/image3.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Accesso di livello 1 da computer e da smartphone</span><a class="headerlink" href="#accesso-livello1-pc" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">Accesso di livello 1 da computer e da smartphone</span><a class="headerlink" href="#accesso-livello1-pc" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="accesso-di-livello-2">
-<h3><span class="section-number">1.1.2. </span>Accesso di livello 2<a class="headerlink" href="#accesso-di-livello-2" title="Permalink to this heading">¶</a></h3>
+<h3>Accesso di livello 2<a class="headerlink" href="#accesso-di-livello-2" title="Permalink to this heading">¶</a></h3>
 <p><strong>DESKTOP VIA OTP (SMS)</strong></p>
 <figure class="align-center" id="accesso-livello2-pc">
 <img alt="Accesso di livello2 da computer" src="_images/image5.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Accesso di livello 2 via OTP su SMS, da computer</span><a class="headerlink" href="#accesso-livello2-pc" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">Accesso di livello 2 via OTP su SMS, da computer</span><a class="headerlink" href="#accesso-livello2-pc" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 <p><strong>DESKTOP VIA OTP (PUSH)</strong></p>
 <figure class="align-center" id="accesso-livello2-pc-push">
 <img alt="Accesso di livello 2 da computer push" src="_images/image6.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Accesso di livello 2 da computer mediante notifiche Push</span><a class="headerlink" href="#accesso-livello2-pc-push" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">Accesso di livello 2 da computer mediante notifiche Push</span><a class="headerlink" href="#accesso-livello2-pc-push" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 <p><strong>DESKTOP VIA QR CODE e CieID</strong></p>
 <figure class="align-center" id="accesso-livello2-qr">
 <img alt="Accesso di livello 2 da computer QR" src="_images/image7.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Accesso di livello 2 da computer attraverso scansione QR code</span><a class="headerlink" href="#accesso-livello2-qr" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">Accesso di livello 2 da computer attraverso scansione QR code</span><a class="headerlink" href="#accesso-livello2-qr" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 <p><strong>SMARTPHONE</strong></p>
 <figure class="align-center" id="accesso-livello2-sm">
 <img alt="Accesso di livello 2 da smartphone" src="_images/image8.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Accesso di livello 2 da smartphone</span><a class="headerlink" href="#accesso-livello2-sm" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">Accesso di livello 2 da smartphone</span><a class="headerlink" href="#accesso-livello2-sm" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="accesso-di-livello-3">
-<h3><span class="section-number">1.1.3. </span>Accesso di livello 3<a class="headerlink" href="#accesso-di-livello-3" title="Permalink to this heading">¶</a></h3>
+<h3>Accesso di livello 3<a class="headerlink" href="#accesso-di-livello-3" title="Permalink to this heading">¶</a></h3>
 <p><strong>DESKTOP</strong></p>
 <figure class="align-center" id="accesso-livello3-pccie">
 <img alt="Accesso di livello 3 da computer RF CIE" src="_images/image9.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Accesso di livello 3 da Computer con lettore RF e CIE</span><a class="headerlink" href="#accesso-livello3-pccie" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">Accesso di livello 3 da Computer con lettore RF e CIE</span><a class="headerlink" href="#accesso-livello3-pccie" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 <p><strong>SMARTPHONE</strong></p>
 <figure class="align-center" id="accesso-livello3-sm">
 <img alt="Accesso di livello 3 da smartphone" src="_images/image10.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Accesso di livello 3 da smartphone</span><a class="headerlink" href="#accesso-livello3-sm" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">Accesso di livello 3 da smartphone</span><a class="headerlink" href="#accesso-livello3-sm" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 <p><strong>MISTA DESKTOP + SMARTPHONE</strong></p>
 <figure class="align-center" id="accesso-livello3-pcsm">
 <img alt="Accesso di livello 3 computer + smartphone" src="_images/image11.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1.8 </span><span class="caption-text">Autenticazione di livello 3 mista &quot;computer + smartphone&quot;</span><a class="headerlink" href="#accesso-livello3-pcsm" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">Autenticazione di livello 3 mista &quot;computer + smartphone&quot;</span><a class="headerlink" href="#accesso-livello3-pcsm" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="app-cieid-e-sdk-di-integrazione">
-<span id="sec-app"></span><h2><span class="section-number">1.2. </span>APP “CieID” e SDK di integrazione<a class="headerlink" href="#app-cieid-e-sdk-di-integrazione" title="Permalink to this heading">¶</a></h2>
+<span id="sec-app"></span><h2>APP “CieID” e SDK di integrazione<a class="headerlink" href="#app-cieid-e-sdk-di-integrazione" title="Permalink to this heading">¶</a></h2>
 <p>Una componente fondamentale per l'utilizzo dello schema “<em>Entra con
 CIE”</em> da terminali mobili è l'app CieID, che viene fornita per
 dispositivi Android e per dispositivi iOS.</p>
 <figure class="align-center" id="cie-android">
 <a class="reference internal image-reference" href="_images/image12.png"><img alt="AppCieID-Android-QR" src="_images/image12.png" style="width: 161.7px; height: 161.7px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.9 </span><span class="caption-text">App CieID Android - Link per il download</span><a class="headerlink" href="#cie-android" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">App CieID Android - Link per il download</span><a class="headerlink" href="#cie-android" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="button-ecc">
 <a class="reference internal image-reference" href="_images/image13.png"><img alt="AppCieID-iOS-download" src="_images/image13.png" style="width: 162.39999999999998px; height: 162.39999999999998px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.10 </span><span class="caption-text">App CieID iOS - Link per il download</span><a class="headerlink" href="#button-ecc" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">App CieID iOS - Link per il download</span><a class="headerlink" href="#button-ecc" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 <p>Dell'app è disponibile anche una versione per i test in ambiente di
@@ -949,7 +895,7 @@ necessario installare l'App CieID di test disponibile al seguente
 <figure class="align-center" id="cieid-test">
 <a class="reference internal image-reference" href="_images/image14.png"><img alt="App-CieID-test" src="_images/image14.png" style="width: 129.5px; height: 129.5px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.11 </span><span class="caption-text">App CieID di test - Link per il download</span><a class="headerlink" href="#cieid-test" title="Link a questa immagine">¶</a></p>
+<p><span class="caption-text">App CieID di test - Link per il download</span><a class="headerlink" href="#cieid-test" title="Link a questa immagine">¶</a></p>
 </figcaption>
 </figure>
 <p>Per effettuare i test in pre-produzione tramite l'App CieID di test o
