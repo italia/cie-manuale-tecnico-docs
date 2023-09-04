@@ -66,6 +66,7 @@ privati, secondo i vari protocolli.
    :caption: Indice dei contenuti
    :numbered:
 
+   overview.rst
    cieIDSDK.rst
    saml.rst
    oidc.rst
