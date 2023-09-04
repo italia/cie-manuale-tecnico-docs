@@ -20,7 +20,7 @@ logico della soluzione eID basata sulla CIE.
     :name: schema-cie
     :align: center
 
-
+    Schema di autenticazione entra con CIE.
 
 L'accesso mediante la CIE ai servizi erogati in rete dalle PP.AA. è reso
 possibile attraverso il CieID Server, sito presso il Ministero
