@@ -7,8 +7,8 @@ settings_copyright_copyleft = 'Istituto Poligrafico e Zecca dello stato'
 settings_editor_name = 'Istituto Poligrafico e Zecca dello stato'
 settings_doc_version = 'version: latest'
 settings_doc_release = 'version: latest'
-settings_basename = 'cie-oidc-test-plan-docs'
-settings_file_name = 'cie-oidc-test-plan-docs'
+settings_basename = 'cie-manuale-tecnico-docs'
+settings_file_name = 'cie-manuale-tecnico-docs'
 
 # -- No need to change below here
 
@@ -283,5 +283,5 @@ texinfo_documents = [
 
 numfig = True
 
-# to turn smartquotes off and be able to use ' 
+# to turn smartquotes off and be able to use ’ 
 smartquotes = False
