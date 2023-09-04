@@ -14,7 +14,7 @@ credenziali di livello basso e significativo ad esso connesso, come
 strumento di identità digitale. Di seguito viene mostrato uno schema
 logico della soluzione eID basata sulla CIE.
 
-.. figure:: ../media/image1.png
+.. figure:: ../../media/image1.png
     :alt: Schema di autenticazione entra con CIE.
     :width: 15 cm
     :name: schema-cie
@@ -75,7 +75,7 @@ provider che integrano lo schema di identificazione mediante la CIE si
 DEVE utilizzare il kit disponibile all'indirizzo
 https://github.com/italia/cie-graphics.
 
-.. figure:: ../media/image2.jpg
+.. figure:: ../../media/image2.jpg
     :alt: Pulsante Entra con CIE
     :scale: 70 %
     :name: pulsante-entra-con-cie
@@ -146,7 +146,7 @@ Accesso di livello 1
 
 .. **DESKTOP**
 
-.. figure:: ../media/image3.png
+.. figure:: ../../media/image3.png
     :alt: Accesso di livello 1 da computer
     :name: accesso-livello1-pc
     :align: center
@@ -155,7 +155,7 @@ Accesso di livello 1
 
 .. **SMARTPHONE**
 
-.. .. figure:: ../media/image4.jpg
+.. .. figure:: ../../media/image4.jpg
     :alt: Accesso di livello 1 da smartphone
     :name: accesso-livello1-sm
     :align: center
@@ -167,7 +167,7 @@ Accesso di livello 2
 
 **DESKTOP VIA OTP (SMS)**
 
-.. figure:: ../media/image5.png
+.. figure:: ../../media/image5.png
     :alt: Accesso di livello2 da computer
     :name: accesso-livello2-pc
     :align: center
@@ -176,7 +176,7 @@ Accesso di livello 2
 
 **DESKTOP VIA OTP (PUSH)**
 
-.. figure:: ../media/image6.png
+.. figure:: ../../media/image6.png
     :alt: Accesso di livello 2 da computer push
     :name: accesso-livello2-pc-push
     :align: center
@@ -185,7 +185,7 @@ Accesso di livello 2
 
 **DESKTOP VIA QR CODE e CieID**
 
-.. figure:: ../media/image7.png
+.. figure:: ../../media/image7.png
     :alt: Accesso di livello 2 da computer QR
     :name: accesso-livello2-QR
     :align: center
@@ -194,7 +194,7 @@ Accesso di livello 2
 
 **SMARTPHONE**
 
-.. figure:: ../media/image8.png
+.. figure:: ../../media/image8.png
     :alt: Accesso di livello 2 da smartphone
     :name: accesso-livello2-sm
     :align: center
@@ -206,7 +206,7 @@ Accesso di livello 3
 
 **DESKTOP**
 
-.. figure:: ../media/image9.png
+.. figure:: ../../media/image9.png
     :alt: Accesso di livello 3 da computer RF CIE
     :name: accesso-livello3-pccie
     :align: center
@@ -215,7 +215,7 @@ Accesso di livello 3
 
 **SMARTPHONE**
 
-.. figure:: ../media/image10.png
+.. figure:: ../../media/image10.png
     :alt: Accesso di livello 3 da smartphone
     :name: accesso-livello3-sm
     :align: center
@@ -224,7 +224,7 @@ Accesso di livello 3
 
 **MISTA DESKTOP + SMARTPHONE**
 
-.. figure:: ../media/image11.png
+.. figure:: ../../media/image11.png
     :alt: Accesso di livello 3 computer + smartphone
     :name: accesso-livello3-pcsm
     :align: center
@@ -240,7 +240,7 @@ Una componente fondamentale per l'utilizzo dello schema “\ *Entra con
 CIE”* da terminali mobili è l'app CieID, che viene fornita per
 dispositivi Android e per dispositivi iOS.
 
-.. figure:: ../media/image12.png
+.. figure:: ../../media/image12.png
     :alt: AppCieID-Android-QR
     :scale: 70 %
     :name: cie-android
@@ -248,7 +248,7 @@ dispositivi Android e per dispositivi iOS.
 
     App CieID Android - Link per il download
 
-.. figure:: ../media/image13.png
+.. figure:: ../../media/image13.png
     :alt: AppCieID-iOS-download
     :scale: 70 %
     :name: button-ecc
@@ -271,7 +271,7 @@ pre-produzione, propedeutici all'attivazione di Entra con CIE in esercizio.
 	necessario installare l'App CieID di test disponibile al seguente
 	`link <https://install.appcenter.ms/users/ipzsapp/apps/cieid-preproduzione/distribution_groups/public%20link>`__
 
-.. figure:: ../media/image14.png
+.. figure:: ../../media/image14.png
     :alt: App-CieID-test
     :scale: 70 %
     :name: cieid-test
