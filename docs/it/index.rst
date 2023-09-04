@@ -67,6 +67,6 @@ privati, secondo i vari protocolli.
    :numbered:
 
    overview.rst
-   cieIDSDK.rst
-   saml.rst
-   oidc.rst
+   .. cieIDSDK.rst
+   .. saml.rst
+   .. oidc.rst
